@@ -51,7 +51,7 @@ La thèse que ce parcours amène à défendre est somme toute modeste : sur les 
 | **Comment tout ça a été fait** | `note_methode.md` | Les trois directions de recherche et l'arrêt à saturation, le gate des citations et les fautes qu'il a trouvées, la règle des cinq états, la réfutation de nouveauté, et ce que ce dépôt n'établit pas. |
 | **L'état d'un pilote réel** | `etats/etats.json` | Les 56 lignes vues depuis un coach sportif qui tourne depuis mai 2026 : 3 en service · 2 acquises sans code · 3 outillées sans usage · 16 amorcées · 32 à construire. |
 | **Les instruments** | `instruments/`, `tools/` | Les scripts de mesure (production, tells d'écriture, provenance, accord entre juges) et leurs sorties datées. 47 tests. |
-| **Les passages de l'essai déjà écrits** | `essai/` | La thèse et les limites, validées phrase par phrase. L'essai lui-même n'est pas encore publié. |
+| **L'essai** | `essai/essai.md` | Le texte complet, avec en annexe le tableau des 56 lignes. Copié à l'identique du dépôt de travail (sha256 comparé). Trois renvois du texte (`statut_reel.md`, `scripts/annexe_56.py`, `docs/cdc/benchmark/`) pointent vers ce dépôt de travail, qui n'est pas publié. `these.md` et `limites.md` sont les deux passages validés en premier. |
 
 **Ce qui n'est pas ici** : le code du pilote, sa base de données, et les documents de travail
 internes. Ce dépôt publie la spécification et les verdicts, pas le système.
