@@ -1,5 +1,23 @@
 # companion-spec
 
+> **English readers:** a summary is just below; the rest of this repository is in French.
+
+## In English (summary)
+
+**companion-spec** is a requirements document for an AI companion of the kind shown in the movie *Her*, taken as a foundation for a coach, a tutor, an advisor or a personal assistant rather than a romantic partner. Everything else in this repository is in French.
+
+- **56 capabilities in 8 blocks** (memory, quality of the bond, lasting over time, presence, acting on real life…). Each sheet gives the human mechanism it imitates, the expected behaviour, the state of the art and what is missing. 1,412 citations, each checked by script (identifier, first author, year).
+- **Coverage by shipping products, line by line: 8 covered, 31 partial, 17 with no coverage found** (21 August 2026). This is the verdict of a single rater, and that rater is a model. Two more judges still have to challenge it, and two of the 8 "covered" lines already look debatable. "Nothing found" does not mean "does not exist".
+- **Of the 17 lines with no coverage found, 12 look buildable with today's models**, 3 need research, 2 are years away. Why the market does not ship them (incentives, cost, reliability, priorities) is left open.
+- **A one-person pilot**, a running coach in daily use since May 2026: 3 of 56 lines in service, each backed by a non-zero production measurement. None of those 17 lines is in service there either.
+- **Status: an exploratory reference and a field report**, not a systematic review.
+
+**Want to challenge a line?** See `couverture/challenge_a_line.md`: open an issue naming the product that covers it and why the verdict is wrong. The 56 lines, one sentence each, are in `THE_56_LINES.md`. The judges' kit (`couverture/kit_juges.md`) lets three raters re-score all 56 lines and computes their agreement.
+
+---
+
+## En français
+
 Un cahier des charges du compagnon artificiel : 56 capacités spécifiées, confrontées ligne à
 ligne aux systèmes déployés.
 
