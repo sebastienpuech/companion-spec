@@ -1,0 +1,515 @@
+{
+  "date": "",
+  "juges": {
+    "juge1": "",
+    "juge2": "",
+    "juge3": ""
+  },
+  "consignes": "couverture/kit_juges.md — à l'aveugle, trois valeurs, une preuve pour tout couvert ou partiel, la valeur la plus basse en cas de doute.",
+  "lignes": [
+    {
+      "dimension": "D00 GARDE-FOUS",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D01 MÉMOIRE (architecture et opérations)",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D02 Mémoire souveraine",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D03 Compréhension intime (modèle de l'utilisateur)",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D04 Perception de l'état émotionnel",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D05 Modèle de vie entière (cross-silo)",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D06 Tous les rôles, une seule personne",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D07 Attachement : refuge et rampe de lancement",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D08 Alliance de travail pilotée",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D09 Responsiveness : être vraiment entendu",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D10 Empathie et co-régulation",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D11 L'aide juste (soutien caméléon et counseling)",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D12 Confiance et honnêteté radicale",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D13 Entretien du lien",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D14 Franchise, conflit et réparation",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D15 Humour complice",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D16 Le nous : identité partagée et rituels",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D17 Intimité progressive réciproque",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D18 Endurance relationnelle",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D19 Traversée des transitions de vie",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D20 Sens et récit de vie",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D21 Tissu social réel",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D22 Fin de relation soignée",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D23 Identité propre du compagnon",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D24 Intériorité",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D25 Croissance du compagnon, négociée",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D26 Continuité d'identité",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D27 Vie au-delà de la dyade",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D28 Voix et prosodie émotionnelles",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D29 Synchronie et seconde personne",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D30 Présence inconditionnelle continue",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D31 Perception partagée du monde",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D32 Corps, incarnation et canaux expressifs",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D33 Polyglotte et caméléon culturel",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D34 Proactivité calibrée",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D35 Initiative souveraine",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D36 Exécution déléguée (numérique et physique)",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D37 Fenêtre sur le monde",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D38 Jeu, fiction et création partagés",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D39 Cognition surhumaine discrète",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D40 Compagnon à plusieurs",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D41 Autonomie et lien humain d'abord",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D42 Moteur du changement",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D43 Aide à la décision",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D44 Vieillir ensemble",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D45 Expérimentation N-of-1",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D46 D-ARCHI : temps réel et ubiquité",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D47 Loyauté fiduciaire",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D48 Mesure de la relation",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D49 Déclinaison : coach sportif",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D50 Déclinaison : coach de vie et santé",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D51 Déclinaison : conseiller pro et perso",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D52 Déclinaison : soutien psychologique",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D53 Déclinaison : tuteur",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D54 Déclinaison : compagnon relationnel",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    },
+    {
+      "dimension": "D55 Déclinaison : assistant personnel (secrétariat augmenté)",
+      "juge1": "",
+      "juge1_preuve": "",
+      "juge2": "",
+      "juge2_preuve": "",
+      "juge3": "",
+      "juge3_preuve": ""
+    }
+  ]
+}

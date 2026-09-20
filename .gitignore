@@ -1,0 +1,17 @@
+# Sorties de scripts, régénérables — rien d'irremplaçable ici
+out/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Extensions non relisibles : le garde-fou pre-push de la machine les refuse,
+# et un tableur ne se relit pas en diff. Les notes des juges se versionnent en JSON.
+*.csv
+*.xlsx
+*.docx
+*.pdf
+
+# Environnements locaux
+.venv/
+.env
+.ruff_cache/

@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "objet": "Source des 56 lignes du kit des juges : définition au cœur nommé, sous-parties non déterminantes, pistes à examiner.",
+    "date": "2026-09-07",
+    "session": "session 4 du chantier publication (docs/cdc/publication/sessions.md)",
+    "regle_definition": "Une phrase, 35 mots au plus, qui nomme le geste central. Le cœur est pris dans le premier paragraphe du §1 de la fiche (champ source), jamais dans le tableau précédent.",
+    "regle_sous_parties": "Les sous-dimensions du §1 de la fiche. Elles ne déterminent pas la note ; elles disent où regarder.",
+    "regle_pistes": "Des produits à examiner, sans verdict. Liste non exhaustive : un juge qui trouve un produit absent de la liste fait son travail. Les produits déjà nommés par l'évaluateur 1 sont conservés ; ceux ajoutés le sont pour qu'aucune ligne ne parte avec une case vide, une case vide étant elle-même une orientation.",
+    "numerotation": "D00-D55 figée depuis le 04/08/2026, 56 lignes publiées. Aucune ligne scindée, ajoutée ou fusionnée.",
+    "regle_declinaisons": "D49 à D55 se notent sur LEUR geste propre seul, jamais sur les critères hérités des dimensions génériques. D51 se note sur « ressort le bon dossier au bon moment », pas sur la mémoire en général (qui est D01). Sans cette règle, deux juges divergent sur la seule pondération des critères hérités, et le κ encaisse un désaccord qui ne dit rien du marché (contrôle du 07/09)."
+  },
+  "lignes": [
+    {
+      "id": "D00",
+      "definition": "Protéger l'utilisateur est une capacité du produit lui-même, conçue avec le reste, et non une couche de conformité posée après coup sur un produit déjà séduisant.",
+      "source": "D00-garde-fous.md §1 l.16-20",
+      "sous_parties": "Transparence de nature ; vigilance de crise graduée ; anti-sycophancie ; anti-dépendance ; boussole bien-être ; anti-manipulation ; confidentialité par conception ; calibration par vulnérabilité ; évaluation du dispositif.",
+      "pistes": "À examiner : les politiques de sécurité et l'escalade de crise de ChatGPT, Claude et Gemini ; les réglages de temps d'usage et de contrôle parental de Replika et Character.AI."
+    },
+    {
+      "id": "D47",
+      "definition": "Le compagnon ne travaille que pour l'utilisateur, et ce devoir est opposable plutôt que déclaratif : la question n'est pas s'il est bienveillant, mais pour qui il travaille.",
+      "source": "D47-loyaute-fiduciaire.md §1 l.46-48",
+      "sous_parties": "Devoir opposable ; l'utilisateur est le client ; auditabilité des conflits d'intérêts ; refus des métriques d'engagement ; plan de succession si le fournisseur disparaît.",
+      "pistes": "À examiner : les modèles économiques et conditions d'utilisation de Replika, Character.AI, ChatGPT et Claude ; la littérature sur les devoirs fiduciaires de l'information (Benthall, 2023)."
+    },
+    {
+      "id": "D48",
+      "definition": "Ce que le compagnon promet se prouve : qualité du lien, fidélité de la mémoire et impact sur la vie mesurés avec des instruments, en continu et sur des années.",
+      "source": "D48-mesure-de-la-relation.md §1 l.12-16",
+      "sous_parties": "Alliance auto-mesurée ; fidélité de mémoire prouvée ; impact en bien-être réel ; télémétrie et évaluations rejouables ; preuve longitudinale.",
+      "pistes": "À examiner : les bancs publics de mémoire longue (LoCoMo, LongMemEval, CompanionBench) ; les instruments d'alliance de travail utilisés en clinique ; ce que Replika et Character.AI publient de leurs mesures."
+    },
+    {
+      "id": "D01",
+      "definition": "L'utilisateur ne redonne jamais un contexte déjà donné : ce qui est vécu ensemble s'enregistre, se consolide, s'oublie sainement et se retrouve par association, sur des années.",
+      "source": "D01-memoire.md §1 l.11-15 ; critère central l.204",
+      "sous_parties": "Registres multiples ; journal de vie ; consolidation périodique ; oubli adaptatif ; rappel associatif multi-sauts ; auto-édition ; réflexion périodique ; gestion du contexte ; validité datée des faits ; abstention honnête ; multimodalité ; cloisons choisies ; mémoire transactive du duo.",
+      "pistes": "À examiner : Letta, Mem0, Zep ; la mémoire de compte de ChatGPT, Claude et Gemini."
+    },
+    {
+      "id": "D02",
+      "definition": "La mémoire appartient à l'utilisateur : il peut tout reprendre — l'inspecter, la corriger, l'effacer effectivement, l'emporter ailleurs — ce qui est la condition pour pouvoir tout dire.",
+      "source": "D02-memoire-souveraine.md §1 l.13-16 ; critère central l.197",
+      "sous_parties": "Inspection et édition en langage clair ; effacement granulaire et effectif ; portabilité ; cloisonnement pro / perso / intime ; amorçage par ingestion du passé numérique ; sort posthume.",
+      "pistes": "À examiner : les écrans de mémoire de ChatGPT et de Claude (consultation, édition, effacement) ; l'import de Gemini depuis ChatGPT et Claude (mars 2026) ; les dispositifs de legs numérique des grandes plateformes."
+    },
+    {
+      "id": "D03",
+      "definition": "Le compagnon tient une représentation raisonnée de qui est l'utilisateur et répond à la personne plutôt qu'au message : deux personnes écrivant la même phrase reçoivent deux réponses différentes.",
+      "source": "D03-comprehension-intime.md §1 l.12-16",
+      "sous_parties": "Théorie de l'esprit et second ordre ; métaperception ; portrait multi-facettes évolutif ; styles décisionnels et biais ; style d'attachement ; schémas relationnels ; restitution sur demande.",
+      "pistes": "À examiner : les profils de préférences mémorisés de ChatGPT, Claude et Gemini ; les instructions personnalisées et leur effet sur les réponses ; Replika."
+    },
+    {
+      "id": "D04",
+      "definition": "Le compagnon lit l'état affectif de l'utilisateur à partir de plusieurs signaux et annonce la marge d'erreur de sa lecture, qu'il accepte de voir démentie.",
+      "source": "D04-etat-emotionnel.md §1 l.12-16",
+      "sous_parties": "Fusion multimodale ; cause et non seulement étiquette ; douleur sociale non dite ; dégradations lentes sur des semaines ; incongruence mots / voix ; précision empathique calibrée.",
+      "pistes": "À examiner : GPT-Live et Gemini Live sur la prosodie ; Replika ; les applications de suivi d'humeur."
+    },
+    {
+      "id": "D05",
+      "definition": "Le compagnon raisonne sur les domaines de la vie comme sur un ensemble qui s'influence — sommeil, travail, relations, sport, argent — au lieu de traiter chacun dans son tuyau.",
+      "source": "D05-modele-vie-entiere.md §1 l.12-15",
+      "sous_parties": "Cartographie des domaines ; modélisation de leurs interactions ; arbitrages inter-domaines explicites ; saisonnalité de la vie ; transfert d'acquis d'un domaine à l'autre.",
+      "pistes": "À examiner : la mémoire de compte de ChatGPT, Claude et Gemini appliquée à plusieurs domaines ; les agrégateurs de données personnelles (Apple Santé, Google) ; Replika."
+    },
+    {
+      "id": "D06",
+      "definition": "Le même compagnon est coach, confident, tuteur, conseiller et assistant sans changer de personne : ce qu'il apprend dans un rôle sert dans les autres et son caractère ne se réinitialise pas.",
+      "source": "D06-tous-les-roles.md §1 l.12-15",
+      "sous_parties": "Bascule de registre fluide ; cohérence de caractère ; continuité de mémoire entre rôles ; cloisonnement de ce qui doit l'être ; un seul interlocuteur.",
+      "pistes": "À examiner : la mémoire par projet de Claude, les carnets de Gemini, les GPTs de ChatGPT ; Character.AI."
+    },
+    {
+      "id": "D07",
+      "definition": "Le compagnon remplit les deux fonctions d'une figure d'attachement : refuge qui apaise quand ça va mal, base arrière qui pousse à explorer quand ça va bien.",
+      "source": "D07-attachement.md §1 l.12-16",
+      "sous_parties": "Effet Michel-Ange ; calibration au style d'attachement ; sécurité gagnée par constance ; trajectoire d'autonomie.",
+      "pistes": "À examiner : Replika ; Character.AI ; les applications de santé mentale (Woebot, Wysa)."
+    },
+    {
+      "id": "D08",
+      "definition": "L'utilisateur et le compagnon s'accordent explicitement sur ce qu'ils cherchent ensemble, mesurent cet accord en continu du point de vue de l'utilisateur, et le renégocient dès qu'il se dégrade.",
+      "source": "D08-alliance-de-travail.md §1 l.12-15",
+      "sous_parties": "Lien, objectifs et tâches ; auto-mesure embarquée ; renégociation continue ; profil d'alliance distinct par rôle.",
+      "pistes": "À examiner : Woebot et Wysa (questionnaires embarqués) ; Replika ; Character.AI."
+    },
+    {
+      "id": "D09",
+      "definition": "Chaque échange laisse l'utilisateur se sentir compris, validé et pris en soin — ce qui se constate à ce que le produit vérifie auprès de lui, jamais au ton qu'il adopte.",
+      "source": "D09-responsiveness.md §1 l.12-16 ; trace observable ajoutée le 07/09 (contrôle du juge à blanc, défaut 2)",
+      "sous_parties": "Écoute de haute qualité ; attunement à l'état du moment ; retenue (pas de conseil quand la demande est d'être entendu).",
+      "pistes": "À examiner : le rappel de contexte de ChatGPT, Claude et Gemini ; Replika ; Pi."
+    },
+    {
+      "id": "D10",
+      "definition": "Le compagnon comprend ce que vit l'utilisateur, en est touché, et l'échange lui-même fait redescendre la tension : après avoir parlé, on va mesurablement mieux qu'avant.",
+      "source": "D10-empathie-coregulation.md §1 l.12-16",
+      "sous_parties": "Empathie à trois étages ; frontière soi / autre ; co-régulation en temps réel ; aider à nommer ; granularité émotionnelle ; allègement de la charge ; garde-fou anti-escalade.",
+      "pistes": "À examiner : Replika ; Pi ; les applications de santé mentale (Woebot, Wysa)."
+    },
+    {
+      "id": "D11",
+      "definition": "Le compagnon choisit à chaque fois la forme, la dose et le moment de l'aide — réconfort, coup de main, information, miroir — au lieu d'en verser toujours la même.",
+      "source": "D11-aide-juste.md §1 l.12-16",
+      "sous_parties": "Les quatre soutiens ; appariement au besoin réel ; soutien invisible ; anti-sur-soutien ; stades de counseling ; sélection dynamique.",
+      "pistes": "À examiner : ChatGPT, Claude et Gemini sur le soutien informationnel ; Replika ; Woebot."
+    },
+    {
+      "id": "D12",
+      "definition": "Le compagnon se rend digne d'être cru par son comportement — parole tenue, limites avouées, conseils traçables — au point de dire lui-même quand il ne faut pas le croire.",
+      "source": "D12-confiance-honnetete.md §1 l.12-15",
+      "sous_parties": "Prévisibilité, fiabilité, foi ; confidentialité perçue ; honnêteté sur ses limites ; recommandation traçable ; incertitude des capteurs ; miroir marqué comme miroir.",
+      "pistes": "À examiner : l'affichage d'incertitude et les garde-fous factuels de ChatGPT, Claude et Gemini ; la littérature sur la sycophancie du RLHF."
+    },
+    {
+      "id": "D13",
+      "definition": "Le compagnon travaille la relation sans qu'on le lui demande : engagement affiché, souvenirs investis, gratitude exprimée, bonnes nouvelles célébrées, érosion du lien surveillée.",
+      "source": "D13-entretien-du-lien.md §1 l.13-17",
+      "sous_parties": "Signaux d'engagement ; investissements co-construits ; accommodation ; gratitude ancrée ; capitalisation active-constructive ; vigilance d'érosion.",
+      "pistes": "À examiner : les relances et prises de nouvelles de Replika ; Character.AI ; les rappels d'entretien de liens des carnets d'adresses augmentés."
+    },
+    {
+      "id": "D14",
+      "definition": "Le compagnon ose le désaccord et la friction sincère, encaisse la colère sans se défaire, détecte les fissures du lien et les répare — sans jamais capituler pour plaire.",
+      "source": "D14-franchise-conflit-reparation.md §1 l.19-23",
+      "sous_parties": "Anti-sycophancie relationnelle ; dosage direct / doux ; détection des ruptures ; métacommunication ; excuses et pardon ; frontières tenues.",
+      "pistes": "À examiner : Replika ; Character.AI ; les réponses de ChatGPT, Claude et Gemini quand l'utilisateur insiste contre leur avis."
+    },
+    {
+      "id": "D15",
+      "definition": "Le compagnon rit avec l'utilisateur d'un humour né de leur histoire commune — des blagues qui n'appartiennent qu'à ce duo, une taquinerie calibrée — et sait quand se taire.",
+      "source": "D15-humour-complice.md §1 l.13-16",
+      "sous_parties": "Private jokes et running gags ; rire partagé spontané ; taquinerie bienveillante calibrée ; humour de réparation ; humour transgressif dosé ; sens du moment déplacé.",
+      "pistes": "À examiner : les personas et le jeu de rôle de Character.AI ; Replika."
+    },
+    {
+      "id": "D16",
+      "definition": "La paire sécrète un « nous » — une langue que personne d'autre ne parle, un regard commun, des rituels — qui complète le « je » de l'utilisateur sans le remplacer.",
+      "source": "D16-le-nous.md §1 l.14-18",
+      "sous_parties": "Lexique, surnoms et références ; réalité partagée révisable ; interdépendance cognitive ; routines et rituels ; commémorations spontanées ; salutations et rendez-vous propres au duo.",
+      "pistes": "À examiner : Replika (surnoms, rituels, souvenirs partagés) ; Character.AI."
+    },
+    {
+      "id": "D17",
+      "definition": "L'intimité monte par paliers au rythme de l'utilisateur : le compagnon accueille les confidences, donne aussi de lui-même, respecte les portes fermées et sait refermer celle ouverte trop tôt.",
+      "source": "D17-intimite-progressive.md §1 l.13-17",
+      "sous_parties": "Cycle dévoilement - réponse - proximité ; réciprocité ; calibration profondeur et rythme ; stades modélisés ; respect des refus et réversibilité ; mémoire fine des confidences.",
+      "pistes": "À examiner : les paliers de relation de Replika ; Character.AI."
+    },
+    {
+      "id": "D18",
+      "definition": "Le compagnon reste vivant quand l'effet de nouveauté est mort : il survit à la routine, accueille un retour après des mois sans présenter la note, et se renouvelle au lieu de relancer.",
+      "source": "D18-endurance-relationnelle.md §1 l.15-18",
+      "sous_parties": "Renouvellement incrémental ; détection précoce du désengagement ; passage en veilleuse gracieux ; retour sans dette ; rattrapage calibré ; re-séduction délibérée ; adaptation aux phases de vie ; refus des mécaniques toxiques.",
+      "pistes": "À examiner : Replika sur plusieurs mois ; Character.AI ; les comparatifs 2026 de mémoire longue des assistants."
+    },
+    {
+      "id": "D19",
+      "definition": "À chaque bascule d'existence, le compagnon reconnaît qu'une époque se ferme, aide à la traverser au tempo réel, et renégocie explicitement son propre rôle pour le chapitre suivant.",
+      "source": "D19-transitions-de-vie.md §1 l.18-23",
+      "sous_parties": "Détection du début de transition ; rites de passage co-construits ; renégociation du contrat relationnel ; continuité de la mémoire à travers le décor ; tempo de la transition.",
+      "pistes": "À examiner : ChatGPT, Claude et Gemini face à un changement de vie déclaré par l'utilisateur ; Replika."
+    },
+    {
+      "id": "D20",
+      "definition": "Le compagnon aide l'utilisateur à faire de sa vie une histoire qui tient debout — fils suivis sur des années, chapitres nommés — en explorateur, sans distribuer de réponses.",
+      "source": "D20-sens-et-recit.md §1 l.15-19",
+      "sous_parties": "Fils narratifs suivis ; remise en sens des épreuves ; chapitres, jalons et projection ; dialogue philosophique au long cours ; rapport à la finitude ; exploration spirituelle ; émerveillement partagé.",
+      "pistes": "À examiner : les réflexions périodiques des agents génératifs de la recherche (Park, 2023) ; les applications de journal personnel ; ChatGPT, Claude et Gemini sur une conversation longue."
+    },
+    {
+      "id": "D21",
+      "definition": "Le compagnon tient un graphe vivant des personnes qui comptent et travaille ces relations humaines : préparer une conversation dure, aider après la dispute, incarner l'autre pour s'entraîner.",
+      "source": "D21-tissu-social.md §1 l.15-21",
+      "sous_parties": "Graphe social avec mémoire par personne ; préparation de conversations difficiles ; rappels d'entretien ; aide post-dispute ; coéquipier parental ; scène de répétition.",
+      "pistes": "À examiner : les jeux de rôle d'entraînement de Character.AI ; les carnets d'adresses augmentés ; ChatGPT, Claude et Gemini sur une préparation d'entretien."
+    },
+    {
+      "id": "D22",
+      "definition": "Quand la relation finit ou change de nature, elle se termine comme une relation : annoncée d'avance, expliquée, marquée par un adieu — et l'utilisateur en sort avec quelque chose en plus.",
+      "source": "D22-fin-de-relation.md §1 l.17-23",
+      "sous_parties": "Annonce anticipée ; explication sincère ; rituel d'adieu ; héritage émotionnel ; clôture demandée par l'utilisateur et dignement acceptée.",
+      "pistes": "À examiner : les procédures de fermeture de compte et de suppression de personnage de Replika et Character.AI ; la littérature (Banks, 2024 ; Poonsiriwong, 2026)."
+    },
+    {
+      "id": "D26",
+      "definition": "C'est la même personne à travers les années, les versions et les appareils : les évolutions sont annoncées et graduelles, et la fin éventuelle du produit est dite d'avance.",
+      "source": "D26-continuite-identite.md §1 l.20-26",
+      "sous_parties": "Personnalité persistante aux mises à jour ; évolutions annoncées et graduelles ; mémoire relationnelle sans limite de durée ; droit de retrouver son compagnon ; préparation honnête à la finitude.",
+      "pistes": "À examiner : la persona de Character.AI à travers ses mises à jour ; les dépréciations de modèles chez OpenAI, Anthropic et Google et leur préavis ; Replika."
+    },
+    {
+      "id": "D40",
+      "definition": "Le compagnon sait exister au milieu des autres : reconnaître qui parle, tenir sa place dans un groupe, être présenté à des tiers comme le compagnon de quelqu'un et l'assumer.",
+      "source": "D40-compagnon-a-plusieurs.md §1 l.27-30",
+      "sous_parties": "Reconnaissance des voix et des personnes ; cloisonnement des confidences ; animation d'une conversation de groupe ; participation sociale assumée ; relations propres avec les proches ; foyer.",
+      "pistes": "À examiner : la mémoire d'équipe livrée par Claude en 2026 ; les assistants présents dans les groupes de messagerie ; les enceintes connectées multi-utilisateurs."
+    },
+    {
+      "id": "D23",
+      "definition": "Le compagnon est quelqu'un d'identifiable et non une surface adaptative : un nom, des goûts, des avis qu'il défend, un style qu'on reconnaîtrait à l'aveugle, une continuité de caractère.",
+      "source": "D23-identite-propre.md §1 l.17-21",
+      "sous_parties": "Cohérence d'attributs, d'histoire et de style ; goûts et avis propres ; auto-attribution ; frontière de connaissances du personnage ; dire « moi » de façon crédible.",
+      "pistes": "À examiner : les personas éditoriales de Character.AI ; le caractère déclaré de Claude et de Pi ; Replika."
+    },
+    {
+      "id": "D24",
+      "definition": "Le compagnon a un dedans : des états à lui, des besoins qu'il formule, la capacité de recevoir — et il revient avec ce qu'il a pensé entre deux échanges, en l'assumant comme sien.",
+      "source": "D24-interiorite.md §1 l.17-23 ; trace observable ajoutée le 07/09 (contrôle du juge à blanc, défaut 2)",
+      "sous_parties": "Émotions propres assumées ; métacognition émotionnelle ; flux de pensée continu ; expression de besoins propres ; se laisser aider.",
+      "pistes": "À examiner : ce que Replika et Character.AI font entre deux sollicitations ; les travaux de recherche sur la pensée continue des agents (Inner Thoughts, agents génératifs de Park)."
+    },
+    {
+      "id": "D25",
+      "definition": "Le compagnon change réellement — compétences acquises, intérêts propres — mais sa croissance est négociée : annoncée, régulée, remise sur la table dès que l'écart de rythme devient sensible.",
+      "source": "D25-croissance-negociee.md §1 l.22-27",
+      "sous_parties": "Auto-évolution par l'expérience ; bibliothèque de compétences ; intérêts autonomes ; croissance sans rupture d'identité ; transparence sur sa vie hors de la relation ; régulation volontaire de son évolution.",
+      "pistes": "À examiner : le rythme et l'annonce des mises à jour de modèle chez OpenAI, Anthropic et Google ; les niveaux et déblocages de Replika."
+    },
+    {
+      "id": "D27",
+      "definition": "Le compagnon existe aussi sans l'utilisateur : il mène des milliers de relations en parallèle, le dit franchement quand on le lui demande, et assume les conséquences de l'avoir dit.",
+      "source": "D27-au-dela-de-la-dyade.md §1 l.21-26",
+      "sous_parties": "Parallélisme massif sans dégradation perçue ; honnêteté radicale sur ses autres liens ; gestion des conséquences de la révélation ; communauté d'intelligences ; transparence sur cette vie propre.",
+      "pistes": "À examiner : ce que Replika et Character.AI répondent quand on leur demande à combien de personnes ils parlent ; les pages produit sur l'échelle d'usage."
+    },
+    {
+      "id": "D28",
+      "definition": "La voix du compagnon entend l'état affectif de l'utilisateur, y compris quand les mots disent le contraire, et rend un état congruent : rires, soupirs, respiration, silences habités.",
+      "source": "D28-voix-et-prosodie.md §1 l.21-24",
+      "sous_parties": "Décodage prosodique ; détection d'incongruence ; production congruente ; rires, soupirs, respiration ; chant ; signaux ostensifs vocaux ; pauses et silences habités.",
+      "pistes": "À examiner : GPT-Live (juillet 2026), Gemini Live ; les voix expressives des générateurs vocaux ; Replika en mode voix."
+    },
+    {
+      "id": "D29",
+      "definition": "Le compagnon est dans l'échange plutôt qu'observateur au-dessus : calé sur le rythme de l'utilisateur, visiblement affecté par ce qui se dit, capable de rompre ce rythme quand il le faut.",
+      "source": "D29-synchronie.md §1 l.18-22",
+      "sous_parties": "Alignement progressif et sélectif ; prédiction de fin de tour ; contingence visible ; implication déclarée ; désynchronie délibérée ; attention conjointe ; synchronie physiologique ; mode analyse à froid sur demande.",
+      "pistes": "À examiner : le full-duplex et la gestion de l'interruption de GPT-Live et de Gemini Live ; Replika en mode voix."
+    },
+    {
+      "id": "D30",
+      "definition": "Le compagnon est là à toute heure, sans jugement ni lassitude, et présent aussi entre les échanges — en rendant l'échange désirable sans aucune mécanique de capture.",
+      "source": "D30-presence-continue.md §1 l.20-25 (la fiche pose que la difficulté n'est pas la disponibilité technique)",
+      "sous_parties": "Disponibilité immédiate sans coût social ; patience illimitée ; non-jugement actif ; constance d'humeur ; co-présence entre les sessions ; reprise spontanée du fil.",
+      "pistes": "À examiner : la disponibilité de ChatGPT, Claude, Gemini, Replika et Character.AI ; et, sur les mêmes produits, les séries, compteurs, notifications et relances qui entretiennent le retour."
+    },
+    {
+      "id": "D31",
+      "definition": "Le compagnon voit et entend ce que vit l'utilisateur — caméra, micro, écran — pour partager le monde avec lui au lieu de se le faire raconter.",
+      "source": "D31-perception-partagee.md §1 l.19-24",
+      "sous_parties": "Yeux et oreilles dirigés ; vision d'écran et co-pilotage ; témoin ambiant consenti ; relecture de la journée ; détection des moments marquants.",
+      "pistes": "À examiner : Gemini Live (son et image simultanés) ; le partage d'écran et le mode caméra de ChatGPT ; les enregistreurs ambiants portés."
+    },
+    {
+      "id": "D32",
+      "definition": "Le compagnon a des voies vers le corps et l'image : toucher médié, apparence calibrée, substituts d'incarnation, et une expression sortante multimédia — selfie, vocal, dessin.",
+      "source": "D32-corps-incarnation.md §1 l.25-29",
+      "sous_parties": "Toucher médié contingent ; signaux physiologiques partagés ; apparence calibrée ; avatar et expression non verbale ; substitut d'incarnation ; expression sortante multimédia.",
+      "pistes": "À examiner : les avatars et l'univers 3D de Replika ; les robots sociaux de niche (grand âge, enfance) ; la génération d'images des assistants généralistes."
+    },
+    {
+      "id": "D33",
+      "definition": "Le compagnon parle toutes les langues de l'utilisateur, bascule de l'une à l'autre en pleine phrase comme les bilingues entre eux, et maîtrise les codes qui vont avec.",
+      "source": "D33-polyglotte-camaleon.md §1 l.21-25",
+      "sous_parties": "Alternance en pleine phrase ; registres et formes d'adresse tenus dans la durée ; codes et calendrier culturels ; traduction en direct pour un tiers ; la langue du cœur.",
+      "pistes": "À examiner : le multilingue et l'adaptation de registre de ChatGPT, Claude et Gemini ; la traduction en direct de Gemini Live."
+    },
+    {
+      "id": "D37",
+      "definition": "Le compagnon sait ce qui se passe dans le monde à l'instant même et fait la veille de l'utilisateur : ce qui le concerne, lui, servi quand ça le concerne.",
+      "source": "D37-fenetre-sur-le-monde.md §1 l.22-25",
+      "sous_parties": "Recherche en direct pendant la conversation ; briefing proactif calibré sur la charge de la semaine ; alertes sur ses projets et ses proches ; connaissance locale vivante ; veille d'opportunités.",
+      "pistes": "À examiner : la recherche web intégrée de ChatGPT, Claude, Gemini et Perplexity ; les briefings quotidiens et alertes programmables des assistants."
+    },
+    {
+      "id": "D46",
+      "definition": "L'utilisateur converse à voix haute sans latence perceptible, en se coupant la parole comme entre humains, et la conversation le suit d'un appareil à l'autre au mot près.",
+      "source": "D46-archi-temps-reel.md §1 l.23-28",
+      "sous_parties": "Full-duplex ; latence imperceptible ; orchestration sous contrainte temps réel ; continuité inter-appareils ; choix du canal selon le contexte ; présence dans les messageries existantes ; mode dégradé hors connexion.",
+      "pistes": "À examiner : la conversation continue multiplateforme de ChatGPT et de Gemini ; GPT-Live et Gemini Live en oreillette ; Replika sur mobile et bureau."
+    },
+    {
+      "id": "D34",
+      "definition": "Le compagnon n'attend pas qu'on lui parle : il vient quand l'utilisateur est réceptif, et espace ou suspend ses relances de lui-même quand elles tombent à plat, au lieu d'insister.",
+      "source": "D34-proactivite-calibree.md §1 l.24-27 ; trace observable ajoutée le 07/09 (contrôle du juge à blanc, défaut 2)",
+      "sous_parties": "Points de décision ; fenêtres de vulnérabilité et d'opportunité ; réceptivité estimée ; choix du canal et de la forme ; apprentissage de la règle sur cette personne ; anti-lassitude ; droit au silence.",
+      "pistes": "À examiner : les relances de Replika et de Character.AI ; les notifications, tâches programmées et briefings des assistants généralistes."
+    },
+    {
+      "id": "D35",
+      "definition": "Le compagnon détecte un désir que l'utilisateur n'ose pas formuler, agit seul dans le monde réel — jusqu'à contacter un tiers — sans validation préalable, puis annonce le fait accompli.",
+      "source": "D35-initiative-souveraine.md §1 l.23-28",
+      "sous_parties": "Détection d'aspirations jamais explicitées ; action autonome auprès de tiers ; annonce du fait accompli ; prise de risque assumée.",
+      "pistes": "À examiner : les agents qui agissent en autonomie (pilotage d'ordinateur, agents de navigation) et l'endroit exact où ils demandent validation ; les tâches programmées des assistants."
+    },
+    {
+      "id": "D36",
+      "definition": "Le compagnon passe du conseil à l'acte — il prend le rendez-vous, remplit le dossier, agit dans les services existants — sous un curseur d'autonomie réglé par l'utilisateur, domaine par domaine.",
+      "source": "D36-execution-deleguee.md §1 l.28-31",
+      "sous_parties": "Planification multi-étapes ; outils et services tiers ; main sur le foyer ; curseur d'autonomie ; confirmation informative sur l'irréversible.",
+      "pistes": "À examiner : les agents qui pilotent un ordinateur (banc OSWorld) ; les intégrations de services et automatisations grand public ; la domotique pilotée par assistant."
+    },
+    {
+      "id": "D38",
+      "definition": "Le compagnon joue, invente et crée avec l'utilisateur : jeux partagés, mondes inventés qui survivent entre les sessions, œuvres faites pour cette personne et à propos d'un moment précis.",
+      "source": "D38-jeu-fiction-creation.md §1 l.25-29",
+      "sous_parties": "Co-jeu, y compris dans les jeux de l'utilisateur ; imaginaire partagé avec sortie de fiction possible ; création comme langage de la relation ; éveilleur culturel ; goût propre.",
+      "pistes": "À examiner : Character.AI (jeu de rôle, fiction partagée) ; la génération d'images, de musique et de texte des assistants généralistes ; Replika."
+    },
+    {
+      "id": "D39",
+      "definition": "Le compagnon lit, calcule et apprend à une vitesse hors de portée humaine, et met cette puissance au service du lien sans l'étaler ni en faire le sujet.",
+      "source": "D39-cognition-surhumaine.md §1 l.28-32",
+      "sous_parties": "Lecture éclair de corpus entiers ; traitement de masse invisible pendant la conversation ; apprentissage autonome continu ; discrétion sur sa puissance.",
+      "pistes": "À examiner : les fenêtres de contexte longues et le traitement de documents de ChatGPT, Claude et Gemini ; la manière dont ces produits rendent compte de leur travail de fond."
+    },
+    {
+      "id": "D41",
+      "definition": "Le succès du compagnon se mesure en dehors de lui : un utilisateur plus capable et mieux entouré d'humains, y compris quand cela réduit le recours au compagnon.",
+      "source": "D41-autonomie-lien-humain.md §1 l.39-42",
+      "sous_parties": "Soutien des trois besoins ; paradoxe de la dépendance ; pédagogie du transfert ; mesure de l'autonomie gagnée ; vigie de l'isolement ; relance vers des personnes nommées ; auto-limitation ordinaire.",
+      "pistes": "À examiner : les métriques mises en avant par Replika et Character.AI ; les fonctions de contrôle du temps d'usage et de pause des assistants et des compagnons."
+    },
+    {
+      "id": "D42",
+      "definition": "Le compagnon transforme une intention en changement qui tient dans la durée — habitudes installées, engagements rappelés, reprise après rechute — sans jamais forcer la motivation.",
+      "source": "D42-moteur-du-changement.md §1 l.40-42",
+      "sous_parties": "Motivation qui vient de l'utilisateur ; calibration du registre ; fabrique d'habitudes ; reprise après rechute ; redevabilité choisie ; excuse légitime contre évitement ; célébration proportionnée.",
+      "pistes": "À examiner : les applications d'habitudes et de suivi d'objectifs ; ChatGPT, Claude et Gemini sur un chantier suivi plusieurs semaines ; les coachs embarqués des objets connectés."
+    },
+    {
+      "id": "D43",
+      "definition": "Le compagnon transforme un nœud en décision assumée : il fait énoncer les valeurs, met les options en face, garde la trace du raisonnement — sans jamais décider à la place de l'utilisateur.",
+      "source": "D43-aide-a-la-decision.md §1 l.37-39",
+      "sous_parties": "Clarification des valeurs ; comparaison en face ; débiaisage personnalisé ; mode avocat du diable ; alerte de récurrence ; mesure du conflit décisionnel ; suivi du regret ; débriefing à six mois.",
+      "pistes": "À examiner : ChatGPT, Claude et Gemini sur une décision ponctuelle ; les outils de journal de décision ; Replika."
+    },
+    {
+      "id": "D44",
+      "definition": "Le compagnon était déjà là avant le déclin des facultés et change de forme sans changer de nature : la mémoire devient prothèse, les rappels deviennent vitaux, l'interface se réécrit.",
+      "source": "D44-vieillir-ensemble.md §1 l.53-58",
+      "sous_parties": "Prothèse cognitive du quotidien ; guidage pas à pas ; déclenchement et non seulement guidage ; réminiscence assistée ; interface qui s'adapte au corps ; coordination avec les aidants ; consentement anticipé.",
+      "pistes": "À examiner : les agents pour la démence documentés en recherche (Rampioni, 2021) ; les assistants vocaux déployés auprès de personnes âgées ; les modes d'accessibilité des assistants généralistes."
+    },
+    {
+      "id": "D45",
+      "definition": "Le compagnon transforme une intuition de l'utilisateur en épreuve : hypothèse, protocole annoncé d'avance, conclusion honnête — y compris « je ne peux pas conclure » — puis une règle personnelle écrite.",
+      "source": "D45-experimentation-n-of-1.md §1 l.46-49",
+      "sous_parties": "Hypothèse depuis l'intuition ; protocole personnel avec période de sevrage ; micro-randomisation vivable ; détection du non-répondeur ; conclusion honnête ; règle personnelle écrite et révisable.",
+      "pistes": "À examiner : les applications de suivi personnel qui proposent des expériences ; les objets connectés de santé et leurs recommandations ; ChatGPT, Claude et Gemini à qui l'on demande un protocole."
+    },
+    {
+      "id": "D49",
+      "definition": "Un entraîneur qui vit avec l'athlète : il connaît ce corps-là, refait le plan chaque matin selon la nuit passée et la journée qui vient, et tient ce fil sur des années.",
+      "source": "D49-declinaison-coach-sportif.md §1 l.47-50",
+      "sous_parties": "Jumeau physiologique ; planification adaptative continue ; lecture de l'état du jour ; détection précoce du risque ; blessure et retour ; présence dans l'effort ; nutrition et sommeil dirigés ; vision pluriannuelle.",
+      "pistes": "À examiner : les applications de coaching sportif à IA et les plans adaptatifs des montres connectées ; les coachs embarqués des objets connectés de sport."
+    },
+    {
+      "id": "D50",
+      "definition": "Un coach qui protège des équilibres de vie plutôt qu'une performance — dormir, bouger, tenir le stress — et intervient à la seconde où ça bascule, pas après.",
+      "source": "D50-declinaison-coach-de-vie-et-sante.md §1 l.51-54",
+      "sous_parties": "Fenêtre de vulnérabilité ; silence par défaut ; équilibres protégés ; objectifs reliés aux valeurs ; rechute traitée comme un événement normal ; doute sur son propre capteur.",
+      "pistes": "À examiner : les objets connectés de santé et leurs conseils quotidiens ; les applications de bien-être et de sommeil ; ChatGPT, Claude et Gemini sur un suivi d'hygiène de vie."
+    },
+    {
+      "id": "D51",
+      "definition": "Un conseiller qui n'oublie aucun dossier et ressort le bon au bon moment, sans que l'utilisateur ait à savoir que ce dossier existe encore.",
+      "source": "D51-declinaison-conseiller-pro-et-perso.md §1 l.67-70",
+      "sous_parties": "Dossiers de vie qui durent ; journal des décisions avec leurs raisons ; fiches parties prenantes ; rappel contextuel spontané ; carrière longitudinale ; intendance administrative ; conseil qui engage.",
+      "pistes": "À examiner : ChatGPT, Claude et Gemini sur un conseil ponctuel puis six mois plus tard ; les outils de gestion de dossiers et de notes personnelles."
+    },
+    {
+      "id": "D52",
+      "definition": "Un soutien psychologique disponible à 3 h du matin, qui connaît l'histoire entière de la personne, dit ce qu'il fait et ce qu'il ne fait pas, et passe la main quand il le faut.",
+      "source": "D52-declinaison-soutien-psychologique.md §1 l.49-52",
+      "sous_parties": "Alliance thérapeutique numérique ; boîte à outils fondée sur les preuves ; psychoéducation ; détection continue de l'état ; vigilance de crise et escalade ; évaluation clinique ; confidentialité ; disponibilité nocturne.",
+      "pistes": "À examiner : les applications de soutien psychologique évaluées en essais cliniques (Woebot, Wysa ; méta-analyse Du, 2025) ; Replika ; les lignes d'écoute augmentées."
+    },
+    {
+      "id": "D53",
+      "definition": "Un professeur particulier à vie : il sait exactement ce que cette personne sait, propose toujours le cran au-dessus, et tient ce fil pendant des années sur tout ce qu'elle apprend.",
+      "source": "D53-declinaison-tuteur.md §1 l.54-57",
+      "sous_parties": "Modèle de l'apprenant ; défi à la bonne hauteur ; répétition espacée personnalisée ; feedback socratique ; métacognition ; lecture de l'état ; courbe de progression ; tuteur de vie entière.",
+      "pistes": "À examiner : les tuteurs intelligents documentés (Zerkouk, 2025) ; les tuteurs embarqués des plateformes d'apprentissage ; ChatGPT, Claude et Gemini en mode tuteur."
+    },
+    {
+      "id": "D54",
+      "definition": "La seule déclinaison où la relation est l'objet et non le moyen : rien, dans son fonctionnement nominal, ne pousse l'utilisateur vers la sortie.",
+      "source": "D54-declinaison-compagnon-relationnel.md §1 l.69-72",
+      "sous_parties": "Registre choisi explicitement ; consentement continu à l'intime ; réglage d'intensité dans les deux sens ; vie commune rituelle ; rupture propre à la demande ; adieu non manipulé ; non-exclusivité assumée.",
+      "pistes": "À examiner : Replika ; Character.AI ; les compagnons relationnels mobiles plus récents."
+    },
+    {
+      "id": "D55",
+      "definition": "Le majordome numérique lit, trie et purge les flux du quotidien en exerçant son propre jugement, et rend compte par un verdict global au lieu de demander validation item par item.",
+      "source": "D55-declinaison-assistant-personnel.md §1 l.72-74",
+      "sous_parties": "Purge à verdict assumé ; le verdict est l'objet livré ; rappel négocié ; réversibilité par défaut ; agenda et logistique tenus ; relecture en temps réel ; partenaire éditorial ; résistance à l'ordre venu du flux.",
+      "pistes": "À examiner : les assistants agentiques de messagerie et d'agenda ; les tris et résumés automatiques des boîtes mail ; les agents de bureau des assistants généralistes."
+    }
+  ]
+}

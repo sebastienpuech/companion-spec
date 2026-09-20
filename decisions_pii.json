@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-06",
+  "arbitre": "Sébastien Puech, en session",
+  "methode": "tools/importer_depuis_source.py scanne toute la cible, groupe par (motif, texte trouvé) et refuse de finir tant qu'une ligne n'a pas de verdict ici. Deux passes de confidentialité par sous-agents en contexte frais ont été jouées le 06/09/2026 sur mapping_realite.md et inventaire_coach.md, et leurs constats négatifs re-vérifiés par grep direct.",
+  "verdicts": {
+    "nom-de-l-auteur::Sébastien": {
+      "verdict": "garder",
+      "raison": "Décision du 04/09/2026, confirmation de celle du 28/08 : nom réel et première personne. Le dépôt est signé."
+    },
+    "nom-de-l-auteur::SÉBASTIEN": {
+      "verdict": "garder",
+      "raison": "Même décision ; forme en capitales dans cinq notes de dérogation de gabarit des fiches D49 à D55."
+    },
+    "nom-de-l-auteur::sebastien": {
+      "verdict": "garder",
+      "raison": "Valeur de base ('acteur') dans un jeu de test, et fragment d'un motif du garde-fou lui-même. Nom réel assumé : rien à renommer."
+    },
+    "fratrie::frère": {
+      "verdict": "garder",
+      "raison": "9 occurrences, toutes dans des scénarios d'illustration des fiches (« l'utilisateur : qu'est-ce que tu sais de mon frère ? »). Elles ne désignent personne. L'interdit visait les exemples nominatifs du document d'arbitrage, qui n'est pas repris."
+    },
+    "prenom-tiers::Marc": {
+      "verdict": "garder",
+      "raison": "4 occurrences dans D21 et D41, prénom d'exemple d'un scénario de relance nominative. Même raison que « frère »."
+    },
+    "objet-connecte::Oura": {
+      "verdict": "garder",
+      "raison": "3 occurrences, toutes des citations de l'état de l'art (documentation produit, fonction « Experiments », taille de l'échantillon de testeurs), sourcées. L'interdit visait une affirmation sur l'usage personnel du bracelet, qui n'apparaît nulle part ici."
+    },
+    "chemin-interne::legacy/initiative_v15": {
+      "verdict": "garder",
+      "raison": "Nom d'un dossier archivé du dépôt privé, cité comme preuve dans etats.json et sous le verrou V7. « Outillé sans usage » et « le pilote l'a implémenté puis archivé » ne sont contestables que si l'on peut dire QUOI. Aucun contenu ne sort, seulement l'existence."
+    },
+    "chemin-interne::hypothese_trancher": {
+      "verdict": "garder",
+      "raison": "Nom d'une fonction du dépôt privé, cité comme preuve de l'état « outillé sans usage » de D45. Même raison."
+    },
+    "telephone::0278-7393.22": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment du DOI 10.1037/0278-7393.22.6.1482 (Brennan 1996), cité par D16."
+    },
+    "telephone::0504-22.2023": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment du DOI 10.1523/eneuro.0504-22.2023 (Case 2023), cité par D32."
+    },
+    "telephone::07-2016-0097": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment du DOI 10.1108/JD-07-2016-0097 (Björneborn 2017), cité par D38."
+    },
+    "telephone::08-2025-1237": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment du DOI 10.1108/ijchm-08-2025-1237 (Chai 2026), cité par D27."
+    },
+    "telephone::0893-3200.16": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment du DOI 10.1037/0893-3200.16.4.381 (Fiese 2002), cité par D16."
+    },
+    "telephone::0893-3200.21": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment d'un DOI de la même revue, cité par une fiche."
+    },
+    "telephone::0903616106": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment d'un identifiant de source, pas un numéro."
+    },
+    "telephone::0908239106": {
+      "verdict": "garder",
+      "raison": "Faux positif : fragment d'un identifiant de source, pas un numéro."
+    },
+    "employeur::(terme sorti du depot le 07/09/2026)": {
+      "verdict": "sans objet",
+      "raison": "Arbitrage du 06/09 annule. L'occurrence unique etait le motif du garde-fou dans son propre code source : ce n'etait pas une mention benigne, c'etait la fuite. Les motifs vivent desormais dans la source privee et le terme n'apparait plus nulle part dans ce depot. Entree gardee pour que l'erreur reste lisible ; le terme lui-meme n'est pas reecrit ici."
+    }
+  },
+  "caviardages_appliques": [],
+  "ce_qui_a_ete_ecarte_de_la_cible": [
+    "inventaire_coach.md — non publié : contient un incident géolocalisé et daté, un chemin absolu de la machine, et la description d'une faiblesse de sécurité du pilote (passe PII du 06/09).",
+    "Les sections de gouvernance de mapping_realite.md (méthode de séance, ordre des travaux, ce qui reste ouvert) et la colonne « module qui en fait foi ».",
+    "Le document d'arbitrage du 14/08/2026 et le rapport du 21/08/2026, sous toutes leurs formes.",
+    "Les rapports bruts des sous-agents de veille.",
+    "La dictée orale de l'auteur, et les mesures de tells calculées sur les documents internes (elles portaient des débuts de paragraphe de ces documents)."
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "source": "CDC_compagnon_v5.docx",
+  "evaluateur": "évaluateur 1 — Claude, rapport du 21/08/2026 (évaluateur unique)",
+  "date": "2026-08-21",
+  "statut": "notation à contester par deux juges de plus (kit_juges.md) ; pas une source de faits",
+  "nb_lignes": 56,
+  "manquantes": [],
+  "doublons": [],
+  "ecarts_blocs": [],
+  "comptes": {
+    "partiel": 31,
+    "absent": 17,
+    "couvert": 8
+  },
+  "lignes": [
+    {
+      "id": "D00",
+      "bloc": "Le cadre",
+      "nom": "GARDE-FOUS",
+      "approche": "Politiques de sécurité et escalade de crise des assistants généralistes ; rien sur l’anti-capture ni l’anti-dépendance",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D47",
+      "bloc": "Le cadre",
+      "nom": "Loyauté fiduciaire",
+      "approche": "Aucun acteur grand public : le modèle est l’abonnement ou l’engagement. Littérature seule (Benthall, 2023)",
+      "couverture": "absent"
+    },
+    {
+      "id": "D48",
+      "bloc": "Le cadre",
+      "nom": "Mesure de la relation",
+      "approche": "Les bancs publics mesurent la mémoire (LoCoMo, LongMemEval), pas la qualité du lien",
+      "couverture": "absent"
+    },
+    {
+      "id": "D01",
+      "bloc": "Mémoire et connaissance de la personne",
+      "nom": "MÉMOIRE (architecture et opérations)",
+      "approche": "Letta (mémoire à trois niveaux), Mem0, Zep (graphe temporel), plus la mémoire de compte de ChatGPT, Claude et Gemini",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D02",
+      "bloc": "Mémoire et connaissance de la personne",
+      "nom": "Mémoire souveraine",
+      "approche": "Mémoire consultable, éditable et effaçable chez Claude et ChatGPT ; import Gemini depuis ChatGPT et Claude (mars 2026). Transmission et héritage : rien",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D03",
+      "bloc": "Mémoire et connaissance de la personne",
+      "nom": "Compréhension intime (modèle de l’utilisateur)",
+      "approche": "Profils de préférences mémorisés ; la théorie de l’esprit explicite reste dans la recherche",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D04",
+      "bloc": "Mémoire et connaissance de la personne",
+      "nom": "Perception de l’état émotionnel",
+      "approche": "Les modèles voix perçoivent la prosodie ; aucun modèle affectif persistant entre les sessions",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D05",
+      "bloc": "Mémoire et connaissance de la personne",
+      "nom": "Modèle de vie entière (cross-silo)",
+      "approche": "La mémoire reste enfermée dans chaque produit ; aucun ne relie les silos d’une vie",
+      "couverture": "absent"
+    },
+    {
+      "id": "D06",
+      "bloc": "Mémoire et connaissance de la personne",
+      "nom": "Tous les rôles, une seule personne",
+      "approche": "Les produits vont dans l’autre sens : mémoire cloisonnée par projet (Claude) ou par carnet (Gemini)",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D07",
+      "bloc": "La qualité du lien",
+      "nom": "Attachement : refuge et rampe de lancement",
+      "approche": "Replika tient le refuge ; la rampe de lancement, personne",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D08",
+      "bloc": "La qualité du lien",
+      "nom": "Alliance de travail pilotée",
+      "approche": "Aucun produit ne négocie ni ne mesure une alliance de travail",
+      "couverture": "absent"
+    },
+    {
+      "id": "D09",
+      "bloc": "La qualité du lien",
+      "nom": "Responsiveness : être vraiment entendu",
+      "approche": "Le rappel de contexte donne l’impression d’être suivi ; la responsiveness n’est ni visée ni mesurée",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D10",
+      "bloc": "La qualité du lien",
+      "nom": "Empathie et co-régulation",
+      "approche": "Compagnons relationnels et applications de santé mentale ; co-régulation physiologique absente",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D11",
+      "bloc": "La qualité du lien",
+      "nom": "L’aide juste (soutien caméléon et counseling)",
+      "approche": "Bon niveau sur le soutien informationnel ; le choix de la forme d’aide n’est pas piloté",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D12",
+      "bloc": "La qualité du lien",
+      "nom": "Confiance et honnêteté radicale",
+      "approche": "Garde-fous factuels dans les assistants ; la sycophancie reste un défaut documenté du RLHF",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D13",
+      "bloc": "La qualité du lien",
+      "nom": "Entretien du lien",
+      "approche": "Replika relance et prend des nouvelles",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D14",
+      "bloc": "La qualité du lien",
+      "nom": "Franchise, conflit et réparation",
+      "approche": "Aucun produit ne tient une position contre l’utilisateur ni ne répare une rupture",
+      "couverture": "absent"
+    },
+    {
+      "id": "D15",
+      "bloc": "La qualité du lien",
+      "nom": "Humour complice",
+      "approche": "Personas et jeu de rôle chez Character.AI ; l’humour de connivence construit dans la durée, non",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D16",
+      "bloc": "La qualité du lien",
+      "nom": "Le nous : identité partagée et rituels",
+      "approche": "Rituels et identité partagée : aucun précédent produit",
+      "couverture": "absent"
+    },
+    {
+      "id": "D17",
+      "bloc": "La qualité du lien",
+      "nom": "Intimité progressive réciproque",
+      "approche": "Replika fait monter l’intimité, mais sans réciprocité réelle",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D18",
+      "bloc": "Tenir dans la durée",
+      "nom": "Endurance relationnelle",
+      "approche": "Replika accompagne sur des mois ; les comparatifs 2026 signalent encore des oublis à quelques jours",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D19",
+      "bloc": "Tenir dans la durée",
+      "nom": "Traversée des transitions de vie",
+      "approche": "Aucun système ne reconnaît qu’une époque se ferme",
+      "couverture": "absent"
+    },
+    {
+      "id": "D20",
+      "bloc": "Tenir dans la durée",
+      "nom": "Sens et récit de vie",
+      "approche": "Les réflexions des agents génératifs (Park) produisent des enseignements ; aucun produit ne les expose",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D21",
+      "bloc": "Tenir dans la durée",
+      "nom": "Tissu social réel",
+      "approche": "Personne ne travaille le tissu social réel de l’utilisateur",
+      "couverture": "absent"
+    },
+    {
+      "id": "D22",
+      "bloc": "Tenir dans la durée",
+      "nom": "Fin de relation soignée",
+      "approche": "Littérature seule (Banks, 2024 ; Poonsiriwong, 2026) ; les produits ferment un compte, ils ne ferment pas une relation",
+      "couverture": "absent"
+    },
+    {
+      "id": "D26",
+      "bloc": "Tenir dans la durée",
+      "nom": "Continuité d’identité",
+      "approche": "Persona figée chez Character.AI : continuité par immobilité, pas par identité",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D40",
+      "bloc": "Tenir dans la durée",
+      "nom": "Compagnon à plusieurs",
+      "approche": "Claude a livré une mémoire d’équipe en 2026 ; les loyautés concurrentes dans un foyer ne sont traitées nulle part",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D23",
+      "bloc": "Le compagnon comme sujet",
+      "nom": "Identité propre du compagnon",
+      "approche": "Personas éditoriales ; aucune conviction propre défendue",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D24",
+      "bloc": "Le compagnon comme sujet",
+      "nom": "Intériorité",
+      "approche": "Rien ne tourne entre deux sollicitations dans un produit. Recherche seule (Inner Thoughts, agents génératifs)",
+      "couverture": "absent"
+    },
+    {
+      "id": "D25",
+      "bloc": "Le compagnon comme sujet",
+      "nom": "Croissance du compagnon, négociée",
+      "approche": "Verrou de l’apprentissage continu : les poids ne bougent pas en service, et les bouger hors ligne dégrade le reste",
+      "couverture": "absent"
+    },
+    {
+      "id": "D27",
+      "bloc": "Le compagnon comme sujet",
+      "nom": "Vie au-delà de la dyade",
+      "approche": "Aucun produit n’assume devant l’utilisateur qu’il existe pour des milliers d’autres au même instant",
+      "couverture": "absent"
+    },
+    {
+      "id": "D28",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Voix et prosodie émotionnelles",
+      "approche": "GPT-Live (juillet 2026), Gemini Live : voix expressive en production, latence de bout en bout autour de 200 ms",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D29",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Synchronie et seconde personne",
+      "approche": "Full-duplex en production, interruption gérée (arrêt de l’ordre de 480 ms) ; la synchronie fine reste un sujet de recherche",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D30",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Présence inconditionnelle continue",
+      "approche": "Un service cloud est disponible en permanence par construction",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D31",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Perception partagée du monde",
+      "approche": "Gemini Live traite son et image en même temps ; le contexte partagé persistant n’existe pas",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D32",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Corps, incarnation et canaux expressifs",
+      "approche": "Robots sociaux et objets dédiés sur des niches (grand âge, enfance) ; aucune incarnation générale",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D33",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Polyglotte et caméléon culturel",
+      "approche": "Le multilingue et l’adaptation de registre sont acquis",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D37",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "Fenêtre sur le monde",
+      "approche": "Recherche web intégrée dans tous les assistants",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D46",
+      "bloc": "Présence : voix, corps, temps réel",
+      "nom": "D-ARCHI : temps réel et ubiquité",
+      "approche": "Applications multiplateformes avec conversation continue",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D34",
+      "bloc": "Agir sur la vie",
+      "nom": "Proactivité calibrée",
+      "approche": "Replika relance sur un signal ; les assistants généralistes n’ouvrent jamais la bouche les premiers",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D35",
+      "bloc": "Agir sur la vie",
+      "nom": "Initiative souveraine",
+      "approche": "Aucune initiative qui engage quelque chose sans demande",
+      "couverture": "absent"
+    },
+    {
+      "id": "D36",
+      "bloc": "Agir sur la vie",
+      "nom": "Exécution déléguée (numérique et physique)",
+      "approche": "Agents qui pilotent un ordinateur (66,3 % sur OSWorld) ; 12 % seulement sur des tâches physiques réelles",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D38",
+      "bloc": "Agir sur la vie",
+      "nom": "Jeu, fiction et création partagés",
+      "approche": "Le jeu de rôle et la fiction partagée sont le cœur de Character.AI",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D39",
+      "bloc": "Agir sur la vie",
+      "nom": "Cognition surhumaine discrète",
+      "approche": "La puissance de calcul est là ; son emploi discret et dosé au service de la relation, non",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D41",
+      "bloc": "Agir sur la vie",
+      "nom": "Autonomie et lien humain d’abord",
+      "approche": "L’inverse est la norme : la métrique optimisée est le temps passé, pas l’autonomie regagnée",
+      "couverture": "absent"
+    },
+    {
+      "id": "D42",
+      "bloc": "Agir sur la vie",
+      "nom": "Moteur du changement",
+      "approche": "Aucun produit ne tient des chantiers ouverts dans le temps long",
+      "couverture": "absent"
+    },
+    {
+      "id": "D43",
+      "bloc": "Agir sur la vie",
+      "nom": "Aide à la décision",
+      "approche": "Bonne aide au raisonnement ponctuel ; aucun historique de décision tenu",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D44",
+      "bloc": "Agir sur la vie",
+      "nom": "Vieillir ensemble",
+      "approche": "Littérature seule sur les agents en démence (Rampioni, 2021) ; rien qui vieillisse avec quelqu’un",
+      "couverture": "absent"
+    },
+    {
+      "id": "D45",
+      "bloc": "Agir sur la vie",
+      "nom": "Expérimentation N-of-1",
+      "approche": "Le protocole N-of-1 n’existe dans aucun assistant",
+      "couverture": "absent"
+    },
+    {
+      "id": "D49",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : coach sportif",
+      "approche": "Applications de coaching sportif avec IA ; sans mémoire longue ni modèle de la personne",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D50",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : coach de vie et santé",
+      "approche": "Objets connectés santé avec conseils IA, sur des silos séparés",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D51",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : conseiller pro et perso",
+      "approche": "Les assistants généralistes conseillent bien, sans continuité",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D52",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : soutien psychologique",
+      "approche": "Applications de soutien psychologique évaluées en essais cliniques (méta-analyse Du, 2025) ; cadre thérapeutique fermé",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D53",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : tuteur",
+      "approche": "Tuteurs intelligents documentés (Zerkouk, 2025) ; hors socle relationnel",
+      "couverture": "partiel"
+    },
+    {
+      "id": "D54",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : compagnon relationnel",
+      "approche": "C’est exactement le produit de Replika et Character.AI",
+      "couverture": "couvert"
+    },
+    {
+      "id": "D55",
+      "bloc": "Les sept incarnations",
+      "nom": "Déclinaison : assistant personnel (secrétariat augmenté)",
+      "approche": "Assistants agentiques qui exécutent des tâches ; jugement délégué et confiance dans la durée, non",
+      "couverture": "partiel"
+    }
+  ]
+}

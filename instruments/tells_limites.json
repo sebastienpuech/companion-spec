@@ -1,0 +1,28 @@
+{
+  "mots": 252,
+  "paragraphes": 1,
+  "phrases": 6,
+  "tirets_cadratins": 0,
+  "tirets_cadratins_pour_300_mots": 0.0,
+  "tirets_demi_cadratins": 0,
+  "ce_nest_pas_x_cest_y": 0,
+  "antitheses_virgule_pas": 0,
+  "antitheses_virgule_pas_pour_1000_mots": 0.0,
+  "triades_fin_de_phrase": 0,
+  "chutes_slogans": 0,
+  "debuts_de_phrase_repetes_3": 0,
+  "debuts_de_paragraphe_repetes_3": 0,
+  "longueur_phrase_moyenne": 42.0,
+  "longueur_phrase_ecart_type": 19.1,
+  "tournures_vides": {
+    "il est important": 0,
+    "au fil de": 0,
+    "dans un monde où": 0
+  },
+  "tournures_vides_total": 0,
+  "paragraphes_consideres_pour_ancre": 1,
+  "paragraphes_sans_ancre": 0,
+  "paragraphes_sans_ancre_debuts": [],
+  "fichier": "limites.md",
+  "plages": "7-7"
+}
