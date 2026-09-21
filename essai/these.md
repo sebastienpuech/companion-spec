@@ -1,7 +1,7 @@
 <!-- Passage validé par Sébastien le 06/09/2026, repris MOT POUR MOT depuis
      docs/cdc/publication/narratif/narratif_valide.md du dépôt privé. Aucune retouche.
      Compteurs (mesure_tells.py) : voir instruments/tells_narratif.json. -->
-
+> **Version du 06/09/2026, remplacée le 21/09/2026.** La thèse en vigueur est « sept sur neuf », au §5 de [`essai.md`](essai.md) : le compte de dix-sept n'a pas résisté à deux passages d'un juge modèle. Ce passage reste ici tel qu'il a été validé, parce que `instruments/tells_etalonnage.md` le mesure.
 ## La thèse, en douze sur dix-sept
 
 On pourrait penser que ce qui manque aux compagnons artificiels tient à la capacité des modèles. Pourtant, sur les 17 capacités qu'aucun système public ne couvre (au verdict d'un premier évaluateur, le 21 août 2026), 12 sont à portée de main, ou déjà acquises sans une ligne de code : l'arbitrage du 14 août 2026 les a jugées constructibles avec ce qui existe (les rituels, la fin de relation soignée…), et la loyauté envers la personne s'obtient par construction dès lors que celui qui paie, celui qui utilise et celui qui opère sont la même personne. Elles manquent au marché faute d'incitation et non de savoir-faire ; d'autres ont établi cet écart d'incitation avant nous (De Freitas et al. 2025, Knox et al. 2025, Chu et al. 2026, Public Citizen 2026), et ce texte ne fait que le trier, ligne à ligne, contre un système qui tourne. Trois capacités relèvent encore de la recherche ; deux sont hors de portée. Dite en dix-sept sur dix-sept, la thèse tomberait au premier relecteur ; dite en douze, elle tient, à une condition qu'il faut énoncer : au 4 septembre 2026, aucune des 17 n'est en service, dans le pilote de l'auteur (un coach sportif, 3 lignes sur 56) comme ailleurs.

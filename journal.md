@@ -4,6 +4,23 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite) — passages en tension alignés
+
+- Source `cdc-companion`, commit `b94ee1f` : essai l. 47 (résultat des deux passages du juge
+  modèle), l. 51 (bloc présence : constat du premier évaluateur, non robuste), l. 87 (trois
+  notations, toutes par un modèle). Tells avant / après : rien de nouveau. Ici, `essai.md`
+  recopié à l'identique.
+- `essai/these.md` **gardé tel quel** et marqué « remplacé » par une ligne visible : il sert
+  d'étalon à `instruments/tells_etalonnage.md` (`--plages 7-7`). Rejoué après l'ajout :
+  203 mots, 25,4 ± 23,8, identique.
+- README l. 10 (anglais) : le juge modèle et son kappa remplacent « two more judges still
+  have to challenge it ». README l. 54 : `these.md` décrit comme la thèse du 06/09, remplacée.
+- Correction d'un signalement précédent : README l. 10 ne parlait pas du bloc voix ; il disait
+  « un seul évaluateur ». Encore en tension, non touché : essai l. 49 (« Rien n'a été re-noté »,
+  « deux des huit lignes qui soutiennent la thèse »).
+
+---
+
 ## 21/09/2026 — la thèse passe de douze sur dix-sept à sept sur neuf
 
 Base : `out/juge-modele-2026-09-20/RAPPORT.md` (non versionné). Le compte de 17 absents ne
