@@ -8,8 +8,8 @@ Sous-commandes :
   importer-couverture SOURCE --sortie JSON
       Lit le tableau « Ligne à ligne » du rapport du 21/08/2026 (fichier .docx ou son texte
       extrait) et l'écrit en JSON comme NOTATION DE L'ÉVALUATEUR 1 (Claude, 21/08) — pas comme
-      une source de faits (règle de fer n°6) : c'est la colonne que deux juges de plus vont
-      contester avec le kit. Vérifie au passage que ses 8 blocs sont ceux de BLOCS.
+      une source de faits (règle de fer n°6) : c'est la colonne que les deux autres juges du kit
+      (juge 2 et juge 3) contestent. Vérifie au passage que ses 8 blocs sont ceux de BLOCS.
   verifier --etats JSON --mesures JSON [--couverture JSON] [--md SORTIE]
       Vérifie etats.json (56 lignes D00-D55, états autorisés, « en service » ⇒ mesure non
       nulle, « outillé sans usage » ⇒ mesure nulle, « amorcé » ⇒ mesure non nulle) et calcule :
@@ -139,7 +139,7 @@ def importer_couverture(chemin: Path) -> dict:
         "source": chemin.name,
         "evaluateur": "évaluateur 1 — Claude, rapport du 21/08/2026 (évaluateur unique)",
         "date": "2026-08-21",
-        "statut": "notation à contester par deux juges de plus (kit_juges.md) ; pas une source de faits",  # noqa: E501
+        "statut": "notation à contester par les deux autres juges du kit (kit_juges.md) ; pas une source de faits",  # noqa: E501
         "nb_lignes": len(lignes),
         "manquantes": [d for d in IDS if d not in ids],
         "doublons": [d for d, n in Counter(ids).items() if n > 1],

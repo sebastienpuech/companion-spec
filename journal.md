@@ -4,6 +4,16 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite 7) — `etats_cdc.py`, dernier reste de la relecture
+
+- Source (non commité) : `scripts/etats_cdc.py`, docstring et statut écrit par
+  `importer-couverture` → « les deux autres juges du kit (juge 2 et juge 3) », formulation qui
+  reste vraie quels que soient les juges. `couverture_evaluateur1_2026-08-21.json` **régénéré**
+  depuis `CDC_compagnon_v5.docx` (dans les Téléchargements, pas dans un dépôt) : seul le champ
+  `statut` change, vérifié par comparaison clé à clé ; 8 / 31 / 17 inchangé.
+- Ici : réimport, `--verifier` CONFORME, 106 tests, ruff propre. Plus aucun « deux juges de
+  plus » hors `essai/limites.md`, qui se déclare remplacé.
+
 ## 21/09/2026 (suite 6) — les 11 points moyens et bas de la relecture
 
 - Source (non commité) : essai §5 (« quatre qui n'étaient pas parmi les dix-sept »), §5 verrous
