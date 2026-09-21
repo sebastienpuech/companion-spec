@@ -4,6 +4,28 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite 5) — relecture de cohérence, les 7 points hauts corrigés
+
+Relecture extérieure en lecture seule : 18 incohérences, rapport dans
+`out/relecture-coherence-2026-09-21.md` (non versionné). Chiffres de la thèse recomptés depuis
+les notes brutes du juge modèle dans la source : 9 unanimes, 15 à la majorité, 15 désaccords
+sur 55, κ 0,47 / 0,34 / 0,21 — tous justes. Les 7 points hauts, corrigés :
+- Source (`projet-coach-cdc`, branche `cdc-companion`, **non commité**) : essai §1, §4, §5, §6,
+  §7 — « deux fois les 56 » → 56 puis 55 (D28 sans note au 2ᵉ passage) ; « Aucune des 17 » et
+  « trois lignes de recherche » → les 9 (1 acquise, 2 outillées, 1 amorcée, 5 à construire) et
+  la seule ligne de recherche ; 514 / 2 172 / 15,2 % → 515 / 2 184 / 15,3 % (JSON du 20/09) ;
+  « 2 juges supplémentaires » → le juge humain à recruter. Kit : même correction 56 / 55.
+- Ici : README (l. 10, 32, 48), `instruments/README.md` (37 → 43 mesures),
+  `contester_une_ligne.md` (cinq champs obligatoires, le sixième facultatif),
+  `challenge_a_line.md` (juge 3 = modèle, juge 2 à un humain), générateur du tableau de
+  couverture dans l'importeur (même phrase, et commande d'accord en deux temps JSON → CSV).
+- Décision de Sébastien, 21/09 : **il reste un seul juge à recruter, humain, à la place de
+  juge 2** ; le juge modèle occupe la place de juge 3.
+- Réimport : `--verifier` CONFORME, 106 tests verts, ruff propre.
+Reste ouvert : les 11 points moyens et bas du rapport ; « deux juges de plus » dans
+`tools/etats_cdc.py` (l. 11 et le statut écrit l. 142, qui finit dans
+`couverture_evaluateur1_2026-08-21.json`).
+
 ## 21/09/2026 (suite 4) — balayage des incohérences restantes
 
 Balayage des fichiers publiés hors fiches (grep : 17, dix-sept, douze, seul évaluateur,

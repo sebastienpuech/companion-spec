@@ -10,7 +10,7 @@ Ce que ce dépôt mesure, avec quoi, et ce qu'un tiers peut rejouer ou non.
 | `tools/mesure_provenance.py` | Quelle part d'un texte vient mot pour mot d'un texte source (4-grammes) | **Oui** |
 | `tools/notes_juges.py` + `tools/accord_juges.py` | Le gabarit de notation des 56 lignes, sa vérification de forme, puis le κ de Fleiss à trois juges | **Oui** — c'est fait pour |
 | `tools/etats_cdc.py` | Vérifie les cinq états des 56 lignes et calcule les comptes par état et par bloc | **Partiellement** : la vérification de forme tourne sur `etats/etats.json`, le contrôle « en service ⇒ mesure non nulle » a besoin de `mesures_prod.json` |
-| `tools/mesure_prod_cdc.py` | 37 mesures de la production du pilote, chacune rattachée à sa table, en lecture seule | **Non — nécessite la base du pilote, qui n'est pas fournie.** Le script et ses sorties datées sont publiés ; la base ne l'est pas |
+| `tools/mesure_prod_cdc.py` | 43 mesures de la production du pilote, chacune rattachée à sa table, en lecture seule | **Non — nécessite la base du pilote, qui n'est pas fournie.** Le script et ses sorties datées sont publiés ; la base ne l'est pas |
 
 ## Les sorties datées
 

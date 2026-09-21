@@ -17,8 +17,8 @@ qui d'autre que nous.
 
 ## Le gabarit
 
-Ouvrez une *issue* sur le dépôt, ou envoyez ce bloc rempli. Les six champs sont tous nécessaires :
-sans le troisième, la contestation n'est pas tranchable ; sans le cinquième, elle n'est pas
+Ouvrez une *issue* sur le dépôt, ou envoyez ce bloc rempli. Les cinq premiers champs sont nécessaires,
+le sixième est facultatif : sans le troisième, la contestation n'est pas tranchable ; sans le cinquième, elle n'est pas
 datée, donc elle périmera sans qu'on sache quand.
 
 ```
@@ -35,7 +35,7 @@ QUI JE SUIS    : facultatif, mais dites si vous avez un intérêt dans le produi
 
 ## Comment c'est traité
 
-1. **Toute contestation qui porte les six champs entre au tableau**, y compris quand elle nous
+1. **Toute contestation qui porte les cinq champs obligatoires entre au tableau**, y compris quand elle nous
    donne tort — c'est le point de la procédure.
 2. Une contestation sur une **note de couverture** est traitée comme une note de juge : elle ne
    remplace pas la note existante, elle s'ajoute, et le compte publié reste celui du vote

@@ -32,7 +32,7 @@ WHO I AM       : optional, but say so if you have an interest in the product cit
 ## How it is handled
 
 1. **Every challenge carrying the five required fields enters the table**, including when it proves us wrong. That is the point of the procedure.
-2. A challenge to a **coverage score** is treated as a judge's score: it does not replace the existing score, it is added to it, and the published count will be that of the majority vote of three judges (`kit_juges.md`). Today there is a single rater; the two other judges have not scored yet.
+2. A challenge to a **coverage score** is treated as a judge's score: it does not replace the existing score, it is added to it, and the published count will be that of the majority vote of three judges (`kit_juges.md`). So far all the scores come from models: the first rater (21 August 2026), then a model judge that took the place of judge 3 and scored the lines twice (20 and 21 September 2026). The place of judge 2 is still open to a human.
 3. A challenge to a **citation** is checked by the gate (`python tools/check_citations.py`), then by hand against the source. If it is founded, the sheet is corrected, the correction is dated, and the previous version stays in the history.
 4. **What is refused, and why**, is written down too. A repository that only displays the challenges it accepted proves nothing.
 

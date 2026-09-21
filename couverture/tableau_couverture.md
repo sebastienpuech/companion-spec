@@ -2,8 +2,9 @@
 
 **Notation d'un seul évaluateur** : Claude, le 21/08/2026, source
 `couverture/couverture_evaluateur1_2026-08-21.json`. Ce n'est pas un fait établi, c'est
-un verdict à contester : deux juges de plus doivent noter les mêmes 56 lignes à l'aveugle
-(`couverture/kit_juges.md`), et les comptes publiés seront ceux du vote majoritaire.
+un verdict à contester. Un juge modèle a pris la place de juge 3 et renoté les lignes les
+20 et 21/09/2026 (ses notes ne sont pas reprises dans ce tableau) ; la place de juge 2 reste
+à un humain (`couverture/kit_juges.md`). Les comptes publiés seront ceux du vote majoritaire.
 La colonne « ce qui s'en approche le plus » est la proposition de l'évaluateur 1 ; elle se
 contredit (`couverture/contester_une_ligne.md`).
 
@@ -80,10 +81,12 @@ pas.
 python tools/importer_depuis_source.py --source <chemin/vers/la/source> --verifier
 ```
 
-Le dépouillement des trois juges, une fois les deux feuilles reçues :
+Le dépouillement des trois juges, une fois la feuille du juge humain reçue (les notes se
+versionnent en JSON, le calcul d'accord lit un CSV) :
 
 ```bash
-python tools/accord_juges.py couverture/notes_juges.json --json couverture/accord_juges.json
+python tools/notes_juges.py --vers-csv couverture/notes_juges.json --sortie out/notes.csv
+python tools/accord_juges.py out/notes.csv --json couverture/accord_juges.json
 ```
 
 Il rend le κ de Fleiss, l'accord par paire et les lignes en désaccord. Le κ publié sera

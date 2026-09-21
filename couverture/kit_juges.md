@@ -8,8 +8,9 @@ pourquoi : `docs/cdc/publication/kit_relecture.md`.
 ## Pourquoi ce kit
 
 Le tableau de couverture de départ (**8 couvert / 31 partiel / 17 absent**) est la notation
-d'**un seul évaluateur** (Claude, rapport du 21/08/2026). Les 20 et 21/09/2026, un juge modèle
-a noté deux fois les 56 lignes, à la place de juge 3 (point 5) ; la thèse s'appuie désormais sur
+d'**un seul évaluateur** (Claude, rapport du 21/08/2026). Le 20/09/2026, un juge modèle
+a noté les 56 lignes, puis 55 le 21/09 (D28 sans note au second passage), à la place de juge 3
+(point 5) ; la thèse s'appuie désormais sur
 les 9 lignes absentes pour les trois notations, et la place de juge 2 reste à un humain. Le travail publiera l'accord de trois
 juges, **tel quel, même mauvais** (audit §6.3). Les juges sont choisis par l'orchestrateur ; la
 notation se fait hors session, sans Claude.
