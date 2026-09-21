@@ -16,6 +16,10 @@ Sous-commandes :
       comptes par état, par bloc et par état, couverture par bloc de l'évaluateur 1 (quel bloc
       l'industrie couvre le plus), les lignes « absent » avec leur état ici. Code de retour 1 si
       une règle est violée.
+  comparer --etats JSON --avant instantane_etats_AAAA-MM-JJ.json
+      Liste les lignes qui ont RÉTROGRADÉ depuis l'instantané, et sort en code 1 s'il y en
+      a. Les mesures étant des COUNT cumulatifs, rien d'autre ne peut voir une descente.
+      L'instantané se met à jour à la main, avec sa date et son motif au journal.
   kit --etats JSON --definitions JSON --sortie MD
       Écrit le tableau des 56 lignes du kit des juges : dimension, définition au cœur nommé,
       sous-parties non déterminantes, pistes à examiner, colonne vide « couvert / partiel /
@@ -49,6 +53,7 @@ import json
 import re
 import sys
 from collections import Counter, OrderedDict
+from datetime import date
 from pathlib import Path
 
 ETATS = ("en service", "acquis sans code", "outillé sans usage", "amorcé", "à construire")
@@ -156,6 +161,60 @@ def _valeur_mesure(mesures: dict, cle: str | None):
     return None, "inconnue"
 
 
+JUSTIFICATION_MIN = 40
+
+# Une ancre est ce par quoi un lecteur ouvre l'artefact : un chemin de fichier ou DE DOSSIER
+# (refuser les dossiers ferait tomber D39, « kb/ingestion … kb/runtime … »), un fichier:ligne,
+# un nom de table ou un nom d'outil. Durcissement (d) de la décision D8, patch v2.1.
+_ANCRES = (
+    # un chemin de fichier : bot/telegram_bot.py, etats/etats.json
+    re.compile(r"[\w./-]+\.(?:py|md|json|db|sql|ya?ml|txt|vbs|ps1)\b"),
+    # un chemin de DOSSIER : kb/ingestion, memory/ — les refuser ferait tomber D39
+    re.compile(r"(?<![\w.])[a-zA-Z][\w-]*/"),
+    # un fichier:ligne : telegram_bot.py:2313
+    re.compile(r"[\w.]+:\d+"),
+    # un nom de table, cité ou non : table `feedback_explicite`, table hypothese
+    re.compile(r"\b(?:table|tables)\s+[`\"\']?\w"),
+    # un nom d'outil : tool memory_extract, tools kb_search et kb_pivot
+    re.compile(r"\b(?:tool|tools|outil|outils)\s+[`\"\']?\w"),
+)
+
+
+def _porte_une_ancre(artefact: str) -> bool:
+    return any(r.search(artefact) for r in _ANCRES)
+
+
+def _controler_provenance(mesures: dict, jour: str) -> list[str]:
+    """D'où vient ce fichier, et de quand date-t-il ? (durcissement (b) de la décision D8)
+
+    Avant ce contrôle, `mesure_prod_cdc.py --db` acceptait n'importe quelle base et le
+    vérificateur n'en savait rien : un chiffre tiré d'une base de développement passait pour
+    une mesure de production. Et comme toutes les mesures sont des COUNT cumulatifs, un
+    fichier vieux de trois semaines ne pouvait que surévaluer l'état du jour.
+
+    Conséquence assumée : vérifier exige désormais une mesure REGÉNÉRÉE LE JOUR MÊME.
+    """
+    erreurs = []
+    if "base_prod" not in mesures:
+        erreurs.append(
+            "mesures_prod.json sans clé base_prod — fichier antérieur au "
+            "durcissement (b) : le régénérer par mesure_prod_cdc.py"
+        )
+    elif mesures["base_prod"] is not True:
+        erreurs.append(
+            "mesures_prod.json porte base_prod: false — mesure prise hors de la "
+            "base de prod, elle ne prouve aucun usage réel"
+        )
+    date_mesure = mesures.get("date_mesure")
+    if date_mesure != jour:
+        erreurs.append(
+            f"mesures_prod.json date du {date_mesure!r}, le jour du run est "
+            f"{jour!r} — les mesures sont des COUNT cumulatifs, un fichier "
+            "périmé ne prouve rien"
+        )
+    return erreurs
+
+
 def _non_nulle(v) -> bool:
     if isinstance(v, bool):
         return v
@@ -166,9 +225,15 @@ def _non_nulle(v) -> bool:
     return bool(v)
 
 
-def verifier(etats: dict, mesures: dict, couverture: dict | None = None) -> dict:
+def verifier(
+    etats: dict,
+    mesures: dict,
+    couverture: dict | None = None,
+    jour: str | None = None,
+) -> dict:
     dims = etats["dimensions"]
     erreurs: list[str] = []
+    erreurs += _controler_provenance(mesures, jour or date.today().isoformat())
     ids = [d["id"] for d in dims]
     if sorted(ids) != IDS:
         erreurs.append(
@@ -192,6 +257,8 @@ def verifier(etats: dict, mesures: dict, couverture: dict | None = None) -> dict
                 erreurs.append(
                     f"{d['id']} en service : mesure « {d['mesure']} » nulle ({v!r}) — règle : aucune mesure non nulle ⇒ pas « en service »"  # noqa: E501
                 )
+            if not d.get("artefact"):
+                erreurs.append(f"{d['id']} en service : aucun artefact nommé")
         elif e == "outillé sans usage":
             if not d.get("mesure"):
                 erreurs.append(f"{d['id']} outillé sans usage : la mesure nulle doit être nommée")
@@ -218,8 +285,20 @@ def verifier(etats: dict, mesures: dict, couverture: dict | None = None) -> dict
                 )
         elif e == "acquis sans code" and not d.get("justification"):
             erreurs.append(f"{d['id']} acquis sans code : la raison doit être écrite")
-        if not d.get("justification"):
+        justif = (d.get("justification") or "").strip()
+        if not justif:
             erreurs.append(f"{d['id']} : justification manquante")
+        elif len(justif) < JUSTIFICATION_MIN:
+            erreurs.append(
+                f"{d['id']} : justification de {len(justif)} caractères, il en faut "
+                f"{JUSTIFICATION_MIN} — une raison de complaisance tient en trois mots"
+            )
+        artefact = (d.get("artefact") or "").strip()
+        if artefact and not _porte_une_ancre(artefact):
+            erreurs.append(
+                f"{d['id']} : artefact « {artefact} » sans ancre repérable — il faut un chemin de "
+                f"fichier ou de dossier, un fichier:ligne, un nom de table ou un nom d'outil"
+            )
 
     par_etat = Counter(d["etat"] for d in dims if d.get("etat") in ETATS)
     par_bloc: "OrderedDict[str, Counter]" = OrderedDict((b, Counter()) for b in BLOCS)
@@ -254,6 +333,65 @@ def verifier(etats: dict, mesures: dict, couverture: dict | None = None) -> dict
         "par_bloc": {b: {e: c.get(e, 0) for e in ETATS} for b, c in par_bloc.items()},
         "couverture_evaluateur1_par_bloc": couverture_bloc,
         "absentes": absentes,
+    }
+
+
+# Progression des états, du plus pauvre au plus acquis. « acquis sans code » se range avec
+# « en service » : les deux disent que la capacité est tenue, l'un par du code, l'autre par la
+# construction du cadre n = 1. Ce qui compte ici est de repérer une DESCENTE, pas de trancher
+# entre deux façons de tenir.
+RANG = {
+    "à construire": 0,
+    "outillé sans usage": 1,
+    "amorcé": 2,
+    "en service": 3,
+    "acquis sans code": 3,
+}
+
+
+def comparer(etats: dict, avant: dict) -> dict:
+    """Quelles lignes ont redescendu depuis l'instantané ? (durcissement (c) de la décision D8)
+
+    Les mesures sont des COUNT cumulatifs : une valeur ne peut jamais redescendre, donc rien
+    dans `verifier` ne pouvait voir une ligne rétrograder. C'est l'assertion A5 du plan, et
+    elle n'était pas exécutable. Elle l'est ici.
+
+    Une ligne disparue de `etats.json` compte comme une erreur, pas comme une rétrogradation :
+    ce n'est pas un état qui baisse, c'est une ligne qu'on ne peut plus juger.
+    """
+    apres = {d["id"]: d.get("etat") for d in etats["dimensions"]}
+    reference = avant["etats"]
+    erreurs: list[str] = []
+    retrogradees: list[dict] = []
+    promues: list[dict] = []
+
+    for i, e_avant in reference.items():
+        if i not in apres:
+            erreurs.append(f"{i} : présente dans l'instantané, absente de etats.json")
+            continue
+        e_apres = apres[i]
+        if e_apres not in RANG:
+            erreurs.append(f"{i} : état « {e_apres} » hors liste")
+            continue
+        if e_avant not in RANG:
+            erreurs.append(f"{i} : état « {e_avant} » hors liste dans l'instantané")
+            continue
+        mouvement = {"id": i, "avant": e_avant, "apres": e_apres}
+        if RANG[e_apres] < RANG[e_avant]:
+            retrogradees.append(mouvement)
+        elif RANG[e_apres] > RANG[e_avant]:
+            promues.append(mouvement)
+
+    for i in apres:
+        if i not in reference:
+            erreurs.append(f"{i} : absente de l'instantané du {avant.get('date', '?')}")
+
+    return {
+        "ok": not retrogradees and not erreurs,
+        "date_instantane": avant.get("date"),
+        "retrogradees": retrogradees,
+        "promues": promues,
+        "erreurs": erreurs,
     }
 
 
@@ -435,6 +573,17 @@ def main(argv: list[str] | None = None) -> int:
     s2.add_argument("--mesures", required=True)
     s2.add_argument("--couverture", default=None)
     s2.add_argument("--md", default=None)
+    s2.add_argument(
+        "--jour",
+        default=None,
+        help=(
+            "jour de référence AAAA-MM-JJ (défaut : aujourd'hui) — pour rejouer "
+            "une vérification passée sans mentir sur la date"
+        ),
+    )
+    s4 = sub.add_parser("comparer")
+    s4.add_argument("--etats", default="etats/etats.json")
+    s4.add_argument("--avant", required=True, help="instantane_etats_AAAA-MM-JJ.json")
     s3 = sub.add_parser("kit")
     s3.add_argument("--etats", required=True)
     s3.add_argument("--definitions", default=None, help="kit_definitions.json (source relue)")
@@ -456,13 +605,28 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "verifier":
         etats = _charger(args.etats)
         v = verifier(
-            etats, _charger(args.mesures), _charger(args.couverture) if args.couverture else None
+            etats,
+            _charger(args.mesures),
+            _charger(args.couverture) if args.couverture else None,
+            jour=args.jour,
         )
         md = rapport_markdown(v, etats)
         print(md)
         if args.md:
             Path(args.md).write_text(md + "\n", encoding="utf-8")
         return 0 if v["ok"] else 1
+    if args.cmd == "comparer":
+        r = comparer(_charger(args.etats), _charger(args.avant))
+        print(f"Comparaison avec l'instantané du {r['date_instantane']} :")
+        for x in r["retrogradees"]:
+            print(f"  RÉTROGRADÉE  {x['id']} : « {x['avant']} » → « {x['apres']} »")
+        for x in r["promues"]:
+            print(f"  promue       {x['id']} : « {x['avant']} » → « {x['apres']} »")
+        for e in r["erreurs"]:
+            print(f"  ERREUR       {e}")
+        if r["ok"]:
+            print("  aucune ligne rétrogradée.")
+        return 0 if r["ok"] else 1
     if args.cmd == "kit":
         etats = _charger(args.etats)
         if args.definitions:

@@ -65,17 +65,17 @@ def lire_notes(chemin: Path) -> tuple[list[str], list[dict[str, str]]]:
     return juges, lignes
 
 
-def analyser(juges: list[str], lignes: list[dict[str, str]]) -> dict:
+def analyser(juges: list[str], lignes: list[dict[str, str]], categories: tuple[str, ...] = CATEGORIES) -> dict:  # noqa: E501
     completes, incompletes, invalides = [], [], []
     for lig in lignes:
         notes = [lig[j] for j in juges]
         if any(n == "" for n in notes):
             incompletes.append(lig["dimension"])
-        elif any(n not in CATEGORIES for n in notes):
+        elif any(n not in categories for n in notes):
             invalides.append(lig["dimension"])
         else:
             completes.append(lig)
-    matrice = [[sum(1 for j in juges if lig[j] == c) for c in CATEGORIES] for lig in completes]
+    matrice = [[sum(1 for j in juges if lig[j] == c) for c in categories] for lig in completes]
     kappa = kappa_fleiss(matrice) if completes else float("nan")
 
     accord_paires = {}
@@ -104,10 +104,10 @@ def analyser(juges: list[str], lignes: list[dict[str, str]]) -> dict:
         else:
             vote_majoritaire["sans majorité"] += 1
 
-    par_juge = {j: {c: sum(1 for lig in completes if lig[j] == c) for c in CATEGORIES} for j in juges}  # noqa: E501
+    par_juge = {j: {c: sum(1 for lig in completes if lig[j] == c) for c in categories} for j in juges}  # noqa: E501
     return {
         "juges": juges,
-        "categories": list(CATEGORIES),
+        "categories": list(categories),
         "lignes_notees": len(completes),
         "lignes_incompletes": incompletes,
         "lignes_invalides": invalides,
@@ -120,6 +120,46 @@ def analyser(juges: list[str], lignes: list[dict[str, str]]) -> dict:
         "comptes_par_juge": par_juge,
         "comptes_vote_majoritaire": dict(vote_majoritaire),
     }
+
+
+def verifier_completude(
+    juges: list[str],
+    lignes: list[dict[str, str]],
+    categories: tuple[str, ...] = CATEGORIES,
+    seuil: float = 0.9,
+) -> dict:
+    """G14 — refus de publier un κ si moins de 90 % des lignes attendues portent une entrée
+    par juge (BUD-4). N'entre PAS dans le calcul de kappa_fleiss ni de `analyser()` : c'est une
+    vérification à part, appliquée par l'appelant (CLI) avant publication.
+
+    `lignes_attendues` est le nombre total de lignes du fichier d'entrée (une ligne = une
+    dimension attendue). Pour chaque juge, `lignes_classees_par_juge` compte les entrées à
+    catégorie valide (non vide, dans `categories`). `publiable` est faux dès qu'un seul juge
+    est sous le seuil.
+    """
+    lignes_attendues = len(lignes)
+    lignes_classees_par_juge = {
+        j: sum(1 for lig in lignes if lig.get(j, "") in categories) for j in juges
+    }
+    publiable = lignes_attendues > 0 and all(
+        (lignes_classees_par_juge[j] / lignes_attendues) >= seuil for j in juges
+    )
+    return {
+        "lignes_attendues": lignes_attendues,
+        "lignes_classees_par_juge": lignes_classees_par_juge,
+        "seuil": seuil,
+        "publiable": publiable,
+    }
+
+
+def rapport_ou_partiel(r: dict, completude: dict) -> str:
+    """G14 : si `completude['publiable']` est faux, publie UNIQUEMENT « κ partiel, n=<compte> »
+    (BUD-4) — jamais le tableau complet, qui laisserait croire à un classement achevé. `n` est
+    le nombre de lignes notées par TOUS les juges (`r['lignes_notees']`), la seule quantité
+    encore fiable dans un classement interrompu à mi-parcours."""
+    if not completude["publiable"]:
+        return f"κ partiel, n={r['lignes_notees']}"
+    return rapport_markdown(r)
 
 
 def lecture_kappa(k: float | None) -> str:
@@ -140,6 +180,8 @@ def lecture_kappa(k: float | None) -> str:
 
 
 def rapport_markdown(r: dict) -> str:
+    cats = r.get("categories", list(CATEGORIES))
+    entete_cats = " / ".join(cats)
     lignes = [
         "| Mesure | Valeur |",
         "|---|---|",
@@ -148,14 +190,12 @@ def rapport_markdown(r: dict) -> str:
         f"| κ de Fleiss | {r['kappa_fleiss']} ({lecture_kappa(r['kappa_fleiss'])}) |",
         f"| Accord brut moyen par paire | {r['accord_brut_moyen']} |",
         f"| Unanimité / majorité / désaccord | {r['unanimite']} / {r['majorite']} / {len(r['desaccord'])} |",  # noqa: E501
-        f"| Vote majoritaire couvert / partiel / absent | "
-        f"{r['comptes_vote_majoritaire'].get('couvert', 0)} / {r['comptes_vote_majoritaire'].get('partiel', 0)} / "  # noqa: E501
-        f"{r['comptes_vote_majoritaire'].get('absent', 0)} (sans majorité : {r['comptes_vote_majoritaire'].get('sans majorité', 0)}) |",  # noqa: E501
+        f"| Vote majoritaire {entete_cats} | "
+        + " / ".join(str(r["comptes_vote_majoritaire"].get(c, 0)) for c in cats)
+        + f" (sans majorité : {r['comptes_vote_majoritaire'].get('sans majorité', 0)}) |",
     ]
     for j, c in r["comptes_par_juge"].items():
-        lignes.append(
-            f"| {j} : couvert / partiel / absent | {c['couvert']} / {c['partiel']} / {c['absent']} |"  # noqa: E501
-        )
+        lignes.append(f"| {j} : {entete_cats} | " + " / ".join(str(c.get(cat, 0)) for cat in cats) + " |")  # noqa: E501
     if r["desaccord"]:
         lignes.append(f"| Lignes en désaccord | {', '.join(r['desaccord'])} |")
     if r["lignes_incompletes"]:
@@ -191,6 +231,17 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--json", default=None, help="écrire le résultat dans ce fichier JSON")
     p.add_argument("--gabarit", default=None, help="etats.json : écrire un CSV vide à remplir")
     p.add_argument("--sortie", default="kit_juges_notes.csv", help="chemin du CSV gabarit")
+    p.add_argument(
+        "--categories",
+        default=None,
+        help="catégories, séparées par des virgules (défaut : couvert,partiel,absent)",
+    )
+    p.add_argument(
+        "--seuil-completude",
+        type=float,
+        default=0.9,
+        help="seuil de remplissage par juge sous lequel le κ n'est pas publiable (G14, défaut 0,9)",
+    )
     args = p.parse_args(argv)
     if args.gabarit:
         n = ecrire_gabarit(Path(args.gabarit), Path(args.sortie))
@@ -198,11 +249,25 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if not args.notes:
         p.error("donner le CSV des notes, ou --gabarit")
+    categories = (
+        tuple(c.strip().lower() for c in args.categories.split(",")) if args.categories else CATEGORIES  # noqa: E501
+    )
     juges, lignes = lire_notes(Path(args.notes))
-    r = analyser(juges, lignes)
-    print(rapport_markdown(r))
+    r = analyser(juges, lignes, categories=categories)
+    completude = verifier_completude(juges, lignes, categories=categories, seuil=args.seuil_completude)  # noqa: E501
+    print(rapport_ou_partiel(r, completude))
     if args.json:
-        Path(args.json).write_text(json.dumps(r, ensure_ascii=False, indent=2), encoding="utf-8")
+        if completude["publiable"]:
+            a_ecrire = r
+        else:
+            # G14 : rien d'autre que « κ partiel, n=… » ne se publie.
+            a_ecrire = {
+                "kappa_fleiss": None,
+                "publiable": False,
+                "message": rapport_ou_partiel(r, completude),
+                "completude": completude,
+            }
+        Path(args.json).write_text(json.dumps(a_ecrire, ensure_ascii=False, indent=2), encoding="utf-8")  # noqa: E501
         print(f"\nJSON écrit : {args.json}")
     return 0
 

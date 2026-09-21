@@ -7,8 +7,10 @@ pourquoi : `docs/cdc/publication/kit_relecture.md`.
 
 ## Pourquoi ce kit
 
-Le tableau de couverture qui porte la thèse (**8 couvert / 31 partiel / 17 absent**) est la notation
-d'**un seul évaluateur** (Claude, rapport du 21/08/2026). Le travail publiera l'accord de trois
+Le tableau de couverture de départ (**8 couvert / 31 partiel / 17 absent**) est la notation
+d'**un seul évaluateur** (Claude, rapport du 21/08/2026). Les 20 et 21/09/2026, un juge modèle
+a noté deux fois les 56 lignes, à la place de juge 3 (point 5) ; la thèse s'appuie désormais sur
+les 9 lignes absentes pour les trois notations, et la place de juge 2 reste à un humain. Le travail publiera l'accord de trois
 juges, **tel quel, même mauvais** (audit §6.3). Les juges sont choisis par l'orchestrateur ; la
 notation se fait hors session, sans Claude.
 
@@ -75,12 +77,11 @@ Trois colonnes, et une seule décide de la note.
    moment ») ne se note pas sur la qualité de la mémoire en général — celle-là est D01, et vous
    l'avez déjà notée. Sans cette règle, deux juges peuvent diverger sur la seule façon de pondérer
    des critères hérités, ce qui abaisse l'accord sans rien dire des produits.
-8. **Certaines lignes ne peuvent pas être `couvert`, et ce n'est pas un piège.** Quelques-unes
-   décrivent un comportement qu'aucun produit grand public n'a intérêt à avoir, parce que son
-   modèle économique s'y oppose — mesurer qu'on réduit son propre usage, s'engager par un devoir
-   opposable, être disponible sans aucune mécanique de rétention. **C'est un résultat attendu, pas
-   un barème truqué.** Notez ce que vous constatez ; si vous trouvez un contre-exemple, il est
-   précieux. Signalez toute ligne qui vous paraît invérifiable de l'extérieur : c'est une donnée.
+8. **Certaines lignes peuvent vous paraître impossibles à couvrir : notez ce que vous constatez, sans chercher pourquoi.** Quelques-unes décrivent un comportement dont aucun produit grand public ne se réclame aujourd'hui — mesurer qu'on réduit son propre usage, s'engager par un devoir opposable, être disponible sans aucune mécanique de rétention. **Les raisons de cette absence ne vous sont pas demandées et ne doivent pas entrer dans votre note** : elles font l'objet d'un débat que votre notation doit pouvoir trancher, non confirmer. Un contre-exemple est précieux. Signalez toute ligne qui vous paraît invérifiable de l'extérieur : c'est une donnée.
+
+   *Point 8 réécrit le 20/09/2026. Les deux passages du juge modèle des 20 et 21/09/2026 ont
+   été notés avec la version précédente, qui titrait : « Certaines lignes ne peuvent pas être
+   `couvert`, et ce n'est pas un piège. »*
 
 ### D'où vient le « 5 à 8 heures »
 

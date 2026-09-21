@@ -77,6 +77,8 @@ PIECES = [
     ("docs/cdc/publication/etats_rapport.md", "etats/etats_rapport.md"),
     ("docs/cdc/publication/mesures_prod.json", "instruments/mesures_prod.json"),
     ("docs/cdc/publication/mesures_prod.md", "instruments/mesures_prod.md"),
+    ("docs/cdc/publication/instantane_etats_2026-09-20.json",
+     "couverture/instantane_etats_2026-09-20.json"),
 ]
 
 # L'essai se copie à part : comme les fiches, son sha256 est recomparé à chaque passage,
@@ -121,6 +123,13 @@ RETOUCHES_SCRIPTS = [
     (r'ROOT / "docs" / "cdc" / "citations_report\.md"', 'ROOT / "out" / "citations_report.md"'),
     (r'ROOT / "docs" / "cdc" / "citations_count\.json"', 'ROOT / "out" / "citations_count.json"'),
     (r"mailto:[\w.+-]+@[\w-]+\.[\w.-]{2,}", "mailto:contact-via-github"),
+]
+
+# Réécriture propre aux tests : dans la source ils vivent dans `tests/`, ici dans
+# `tools/tests/` ; la racine du dépôt est donc un cran plus haut (constaté le 21/09/2026,
+# 5 tests en échec sur `etats.json` introuvable après l'import).
+RETOUCHES_TESTS = [
+    (r"Path\(__file__\)\.resolve\(\)\.parents\[1\]", "Path(__file__).resolve().parents[2]"),
 ]
 
 # ------------------------------------------------------------------ interdits et PII
@@ -258,7 +267,7 @@ def copier_essai(source: Path, cible: Path, ecrire: bool) -> str:
     return "identique" if sha256(dst) == sha256(src) else "différent"
 
 
-def _retoucher(src: Path) -> tuple[bytes, int]:
+def _retoucher(src: Path, en_plus: tuple = ()) -> tuple[bytes, int]:
     """Applique les retouches déclarées, en OCTETS.
 
     Passer par `read_text` / `write_text` retraduirait les fins de ligne : la source est en
@@ -268,7 +277,7 @@ def _retoucher(src: Path) -> tuple[bytes, int]:
     """
     texte = src.read_bytes().decode("utf-8")
     retouches = 0
-    for motif, remplacement in RETOUCHES_SCRIPTS:
+    for motif, remplacement in [*RETOUCHES_SCRIPTS, *en_plus]:
         texte, n = re.subn(motif, remplacement, texte)
         retouches += n
     return texte.encode("utf-8"), retouches
@@ -291,7 +300,7 @@ def copier_scripts(source: Path, cible: Path, ecrire: bool) -> list[dict]:
         dst = cible / "tools" / "tests" / nom
         if not src.exists():
             raise SystemExit(f"ARRÊT : test absent de la source — tests/{nom}")
-        texte, retouches = _retoucher(src)
+        texte, retouches = _retoucher(src, tuple(RETOUCHES_TESTS))
         if ecrire:
             dst.parent.mkdir(parents=True, exist_ok=True)
             dst.write_bytes(texte)

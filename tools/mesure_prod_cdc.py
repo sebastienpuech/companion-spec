@@ -56,6 +56,19 @@ where m.acteur = 'coach'
 """
 
 # (clé, libellé, table, requête ou dérivation). `sql=COUNT` = count(*) sur la table.
+# Jointure des rappels declenches par une question (hors briefing systematique) avec les notes
+# qu'ils ont servies. `note_ids` est un tableau JSON : json_each le deplie.
+RAPPELS_NOTES = (
+    "from memory_recall_log r, json_each(r.note_ids) j"
+    " join memoire_note n on n.id = j.value"
+    " where r.source in ('auto_recall','tool')"
+    " and r.note_ids is not null and r.note_ids <> '[]'"
+)
+RAPPELS_DECLENCHES = (
+    "select count(*) from memory_recall_log where source in ('auto_recall','tool')"
+    " and note_ids is not null and note_ids <> '[]'"
+)
+
 MESURES: list[dict] = [
     dict(cle="messages", libelle="messages échangés", table="message_chat", sql=COUNT),
     dict(
@@ -185,7 +198,12 @@ MESURES: list[dict] = [
     dict(
         cle="initiatives", libelle="initiatives journalisées", table="initiative_coach", sql=COUNT
     ),
-    dict(cle="hypotheses", libelle="hypothèses N-of-1", table="hypothese", sql=COUNT),
+    dict(
+        cle="hypotheses",
+        libelle="hypothèses N-of-1 tranchées",
+        table="hypothese",
+        sql="select count(*) from hypothese where verdict is not null",
+    ),
     dict(cle="releves_poids", libelle="relevés de poids", table="poids_releve", sql=COUNT),
     dict(cle="chantiers", libelle="chantiers", table="chantier", sql=COUNT),
     dict(
@@ -222,6 +240,54 @@ MESURES: list[dict] = [
         num="jours_coach_premier",
         den="jours_calendaires",
     ),
+    dict(
+        cle="rappels_declenches",
+        libelle="rappels déclenchés par une question (hors briefing systématique)",
+        table="memory_recall_log",
+        sql=RAPPELS_DECLENCHES,
+    ),
+    dict(
+        cle="notes_servies",
+        tables_jointes=("memoire_note",),
+        libelle="notes servies par ces rappels",
+        table="memory_recall_log",
+        sql=f"select count(*) {RAPPELS_NOTES}",
+    ),
+    dict(
+        cle="age_median_note_servie",
+        tables_jointes=("memory_recall_log",),
+        libelle="âge médian d'une note servie, en jours",
+        table="memoire_note",
+        sql=(
+            "select cast(julianday(r.date) - julianday(n.date_creation) as int) as age "
+            f"{RAPPELS_NOTES} order by age limit 1 "
+            f"offset (select count(*) {RAPPELS_NOTES})/2"
+        ),
+    ),
+    dict(
+        cle="part_notes_servies_plus_30j",
+        tables_jointes=("memory_recall_log",),
+        libelle="part des notes servies créées il y a plus de 30 jours",
+        table="memoire_note",
+        sql=(
+            "select round(1.0*sum(case when julianday(r.date)-julianday(n.date_creation) > 30 "
+            f"then 1 else 0 end)/count(*), 4) {RAPPELS_NOTES}"
+        ),
+    ),
+    dict(
+        cle="notes_retour_explicite",
+        colonnes_requises=("tags",),
+        libelle="notes portant le tag du retour explicite (la table dédiée est vide)",
+        table="memoire_note",
+        sql="select count(*) from memoire_note where tags like '%feedback_explicite%'",
+    ),
+    dict(
+        cle="predictions_scellees_resolues",
+        colonnes_requises=("resolution",),
+        libelle="prédictions scellées puis résolues (la table `hypothese` est vide)",
+        table="dossier_prediction",
+        sql="select count(*) from dossier_prediction where resolution is not null",
+    ),
 ]
 
 
@@ -230,6 +296,18 @@ def chemin_base_defaut() -> Path:
     if env:
         return Path(env) / "coach.db"
     return Path.home() / "coach-data" / "coach.db"
+
+
+def est_base_de_prod(chemin: Path) -> bool:
+    """Vrai si c'est bien COACH_DATA_PATH/coach.db — la seule base qui mesure la réalité.
+
+    Le fichier produit ne porte QU'UN BOOLÉEN, jamais le chemin : `mesures_prod.json` est
+    destiné à un dépôt qui peut sortir, et un chemin absolu y publierait le nom du compte.
+    """
+    try:
+        return chemin.resolve() == chemin_base_defaut().resolve()
+    except OSError:
+        return False
 
 
 def ouvrir_lecture_seule(chemin: Path) -> sqlite3.Connection:
@@ -275,7 +353,11 @@ def compter_divergences_logs(dossier: Path) -> int | None:
 
 
 def mesurer(
-    conn: sqlite3.Connection, date_mesure: date, logs: Path | None = None, base: str = ""
+    conn: sqlite3.Connection,
+    date_mesure: date,
+    logs: Path | None = None,
+    base: str = "",
+    base_prod: bool = True,
 ) -> dict:
     tables = lister_tables(conn)
     resultats: list[dict] = []
@@ -285,9 +367,24 @@ def mesurer(
         entree = {"cle": m["cle"], "libelle": m["libelle"], "table": m["table"]}
         if m["table"] is None:
             entree.update(valeur=None, statut=NON_MESURABLE, note=m.get("note", "aucune table"))
-        elif m["table"] not in tables:
+        elif manquante := next(
+            (n for n in [m["table"], *m.get("tables_jointes", ())] if n not in tables), None
+        ):
             entree.update(
-                valeur=None, statut=NON_MESURABLE, note=f"table `{m['table']}` absente de la base"
+                valeur=None, statut=NON_MESURABLE, note=f"table `{manquante}` absente de la base"
+            )
+        elif col := next(
+            (
+                c
+                for c in m.get("colonnes_requises", ())
+                if c not in {r[1] for r in conn.execute(f'pragma table_info("{m["table"]}")')}
+            ),
+            None,
+        ):
+            entree.update(
+                valeur=None,
+                statut=NON_MESURABLE,
+                note=f"colonne `{col}` absente de `{m['table']}`",
             )
         elif "derive" in m:
             entree.update(valeur=None, statut=MESURE)  # calculé après, depuis les autres mesures
@@ -323,6 +420,7 @@ def mesurer(
     return {
         "date_mesure": date_mesure.isoformat(),
         "base": base,
+        "base_prod": base_prod,
         "nb_tables": len(tables),
         "tables": tables,
         "tables_vides": vides,
@@ -390,13 +488,36 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument(
         "--logs", default=None, help="dossier des logs du bot, pour les divergences de grounding"
     )
+    p.add_argument(
+        "--hors-prod",
+        action="store_true",
+        help=(
+            "mesurer une base hors production ; le JSON portera base_prod: false "
+            "et le verificateur le refusera"
+        ),
+    )
     args = p.parse_args(argv)
 
     chemin = Path(args.db) if args.db else chemin_base_defaut()
+    base_prod = est_base_de_prod(chemin)
+    if not base_prod and not args.hors_prod:
+        print(
+            "REFUS — cette base n'est pas celle de production (COACH_DATA_PATH/coach.db).\n"
+            "Un chiffre tiré d'ailleurs ne mesure rien de réel. Relancer avec --hors-prod "
+            "si c'est un essai assumé : le JSON portera base_prod: false.",
+            file=sys.stderr,
+        )
+        return 2
     date_mesure = date.fromisoformat(args.date) if args.date else date.today()
     conn = ouvrir_lecture_seule(chemin)
     try:
-        r = mesurer(conn, date_mesure, Path(args.logs) if args.logs else None, base=chemin.name)
+        r = mesurer(
+            conn,
+            date_mesure,
+            Path(args.logs) if args.logs else None,
+            base=chemin.name,
+            base_prod=base_prod,
+        )
     finally:
         conn.close()
     md = tableau_markdown(r)

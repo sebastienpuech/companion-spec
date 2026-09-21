@@ -4,6 +4,35 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite 4) — balayage des incohérences restantes
+
+Balayage des fichiers publiés hors fiches (grep : 17, dix-sept, douze, seul évaluateur,
+single rater, 47 tests). Corrigés ici :
+- `note_methode.md` §5 : « un seul évaluateur », « deux des dix-sept vacillent », « aucune des
+  dix-sept », « les douze » → trois notations, 9 unanimes, 7 à portée.
+- `README.md` l. 12 : « None of those 17 lines » → 9.
+- `instruments/README.md` : « 47 tests » → 85 au 21/09/2026.
+- `essai/limites.md` : marqué « remplacé », comme `these.md` (étalon des tells, rejoué :
+  252 mots, 42,0 ± 19,1, inchangé).
+Laissés, parce qu'ils décrivent le relevé de l'évaluateur 1 et restent vrais : `THE_56_LINES.md`
+l. 64, `couverture/tableau_couverture.md`, `etats/etats_rapport.md` l. 38, README l. 10.
+Puis, sur « ok sur les recos » de Sébastien :
+- Source `086d83d` : kit des juges, « Pourquoi ce kit » réécrit (le 8/31/17 ne porte plus la
+  thèse ; passages du juge modèle nommés) et une ligne sous le point 8 : les passages des 20 et
+  21/09 ont été notés avec la version précédente du point 8.
+- Source `845778b` : `mesures_prod.md` régénéré depuis le JSON du 20/09 (43 mesures) par
+  `tableau_markdown()`, qui reproduit à l'identique le tableau du 04/09 depuis son JSON.
+- Import complet relancé : kit, `mesures_prod.json/.md`, 4 scripts et
+  `couverture/instantane_etats_2026-09-20.json` (pièce neuve) à jour de la source.
+- **Défaut de l'import trouvé et corrigé** : 5 tests de `test_etats_cdc.py` en échec,
+  `etats.json` introuvable. Les tests de la source vivent dans `tests/`, ici dans
+  `tools/tests/` : `parents[1]` visait `tools/`. Retouche déclarée `RETOUCHES_TESTS`
+  (`parents[1]` → `parents[2]`, tests seulement) et pièce neuve ajoutée à `PIECES`.
+  Après : 106 tests verts, ruff propre, `--verifier` CONFORME.
+- `instruments/README.md` : 43 mesures du 20/09, 106 tests ; `README.md` l. 53 : « 47 tests » → 106.
+
+---
+
 ## 21/09/2026 (suite 3) — l'essai entre dans l'import
 
 - `tools/importer_depuis_source.py` copie `docs/cdc/publication/narratif/essai.md` vers

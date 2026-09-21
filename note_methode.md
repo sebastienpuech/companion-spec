@@ -176,16 +176,18 @@ ligne par ligne, contre un système qui tourne.
 
 ## 5. Ce que ce dépôt n'établit pas
 
-- **« Absent de tout système public » est le verdict d'un seul évaluateur**, daté du 21/08/2026.
-  Il ne vaudra qu'avec l'accord de deux juges de plus (`couverture/kit_juges.md`), et il sera
-  rejoué la semaine de la publication : deux des dix-sept lignes vacillent déjà.
+- **« Absent de tout système public » a été noté trois fois, et les trois fois par un modèle** :
+  l'évaluateur 1 le 21/08/2026 (17 absents), puis deux passages d'un juge modèle les 20 et
+  21/09/2026. Seules 9 lignes sont absentes pour les trois ; le même juge, relancé à
+  l'identique, se contredit sur 15 lignes sur 55. Aucun juge humain n'a encore noté
+  (`couverture/kit_juges.md`), et le relevé sera rejoué la semaine de la publication.
 - **« À portée de main » est un arbitrage**, rendu le 14/08/2026, pas une démonstration. La
   démonstration sera chaque brique passée en service, avec sa mesure non nulle.
 - **L'incitation comme cause n'est pas une découverte de ce texte.** Elle est établie ailleurs ;
   ce travail la trie, ligne à ligne, contre un système qui tourne.
 - **Le pilote n'est pas un compagnon** : c'est un coach sportif, seule déclinaison instanciée,
-  trois lignes en service sur 56, et **aucune des dix-sept lignes absentes partout n'y est en
-  service**. Les douze « à portée de main » restent à portée, pas obtenues.
+  trois lignes en service sur 56, et **aucune des neuf lignes absentes pour les trois notations
+  n'y est en service**. Les sept « à portée de main » restent à portée, pas obtenues.
 - **La mesure de production ne peut pas être rejouée par un tiers** : elle lit la base du pilote,
   qui n'est pas fournie. Ce qui est publié, ce sont ses sorties datées et le script qui les a
   produites (`instruments/`).

@@ -14,7 +14,7 @@ Ce que ce dépôt mesure, avec quoi, et ce qu'un tiers peut rejouer ou non.
 
 ## Les sorties datées
 
-- `mesures_prod.json` et `mesures_prod.md` — les 37 mesures du **04/09/2026**, chacune avec sa
+- `mesures_prod.json` et `mesures_prod.md` — les 43 mesures du **20/09/2026**, chacune avec sa
   table d'origine et son statut. Six tables annoncées par la spécification du pilote y sont
   **toujours vides** : c'est ce qui fait basculer trois lignes en « outillé sans usage » plutôt
   qu'en « en service ». Le fichier dit ce qui est en base ; `../note_methode.md` dit ce que ça
@@ -35,7 +35,8 @@ Ce que ce dépôt mesure, avec quoi, et ce qu'un tiers peut rejouer ou non.
    empreinte.
 3. **Les scripts copiés portent deux retouches, et deux seulement** : le nom du paquet
    (`scripts.` devient `tools.`) et les chemins par défaut, adaptés à la disposition de ce dépôt.
-   Aucune logique de mesure n'a été touchée, et `tools/tests/` le vérifie — 47 tests.
+   Aucune logique de mesure n'a été touchée, et `tools/tests/` le vérifie — 106 tests au
+   21/09/2026.
 
 ```bash
 python -m pytest tools/tests -q

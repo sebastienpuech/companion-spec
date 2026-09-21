@@ -1,22 +1,33 @@
 """Tests de tools/etats_cdc.py : import du tableau de couverture, règles des cinq états, kit."""
 
 import json
+from datetime import date, timedelta
+from pathlib import Path
+
+import pytest
 
 import tools.etats_cdc as ec
 
 
-def _mesures(**valeurs):
-    return {"mesures": [{"cle": k, "valeur": v, "statut": "mesuré"} for k, v in valeurs.items()]}
+def _mesures(base_prod=True, date_mesure=None, **valeurs):
+    return {
+        "base_prod": base_prod,
+        "date_mesure": date_mesure or date.today().isoformat(),
+        "mesures": [{"cle": k, "valeur": v, "statut": "mesuré"} for k, v in valeurs.items()],
+    }
 
 
-def _dims_complets(etat="à construire", **surcharges):
+JUSTIF = "justification de test, assez longue pour franchir le seuil des quarante"
+
+
+def _dims_complets(etat="à construire", justification=JUSTIF, **surcharges):
     dims = []
     for i in ec.IDS:
         d = {
             "id": i,
             "nom": f"nom {i}",
             "etat": etat,
-            "justification": "test",
+            "justification": justification,
             "mesure": None,
             "artefact": None,
         }
@@ -60,7 +71,11 @@ def test_importer_couverture_depuis_texte(tmp_path):
 def test_regles_des_etats():
     etats = _dims_complets(
         **{
-            "D01": {"etat": "en service", "mesure": "notes_memoire"},
+            "D01": {
+                "etat": "en service",
+                "mesure": "notes_memoire",
+                "artefact": "memory/retrieval.py:120",
+            },
             "D45": {
                 "etat": "outillé sans usage",
                 "mesure": "hypotheses",
@@ -191,3 +206,225 @@ def test_main_verifier_code_retour(tmp_path):
     mesures = tmp_path / "mesures.json"
     mesures.write_text(json.dumps(_mesures()), encoding="utf-8")
     assert ec.main(["verifier", "--etats", str(etats), "--mesures", str(mesures)]) == 0
+
+
+# --- Durcissements D8 de la session 0 du plan des 11 briques (20/09/2026) ---------------------
+# (a) « en service » exige un artefact, comme « outillé sans usage » le fait déjà.
+# (d) justification d'au moins 40 caractères, artefact porteur d'une ancre repérable.
+
+
+def test_en_service_sans_artefact_est_refuse():
+    """(a) — la dissymétrie relevée au §0.2 de spec_produit.md : :184-193 contre :206-207."""
+    etats = _dims_complets(**{"D01": {"etat": "en service", "mesure": "notes_memoire"}})
+    v = ec.verifier(etats, _mesures(notes_memoire=247))
+    assert not v["ok"]
+    assert any("D01" in e and "artefact" in e for e in v["erreurs"]), v["erreurs"]
+
+
+def test_en_service_avec_artefact_reste_accepte():
+    etats = _dims_complets(
+        **{
+            "D01": {
+                "etat": "en service",
+                "mesure": "notes_memoire",
+                "artefact": "memory/retrieval.py:120",
+            }
+        }
+    )
+    v = ec.verifier(etats, _mesures(notes_memoire=247))
+    assert v["ok"], v["erreurs"]
+
+
+def test_justification_trop_courte_est_refusee():
+    """(d) — une justification de complaisance tient en trois mots ; le seuil est à 40."""
+    etats = _dims_complets(**{"D02": {"justification": "parce que"}})
+    v = ec.verifier(etats, _mesures())
+    assert not v["ok"]
+    assert any("D02" in e and "justification" in e and "40" in e for e in v["erreurs"]), v[
+        "erreurs"
+    ]
+
+
+def test_artefact_sans_ancre_est_refuse():
+    """(d) — « il y a du code quelque part » n'est pas un artefact : rien ne s'y ouvre."""
+    etats = _dims_complets(
+        **{
+            "D45": {
+                "etat": "outillé sans usage",
+                "mesure": "hypotheses",
+                "artefact": "il y a du code quelque part dans le depot",
+            }
+        }
+    )
+    v = ec.verifier(etats, _mesures(hypotheses=0))
+    assert not v["ok"]
+    assert any("D45" in e and "ancre" in e for e in v["erreurs"]), v["erreurs"]
+
+
+@pytest.mark.parametrize(
+    "artefact",
+    [
+        "kb/ingestion et kb/runtime, tools kb_search et kb_pivot",  # noms de DOSSIER — c'est D39
+        "bot/telegram_bot.py:2313 _ground_reply",
+        "table hypothese",
+        "tool memory_extract",
+        "scripts/scheduled/briefing_matinal.py",
+    ],
+)
+def test_artefact_avec_ancre_est_accepte(artefact):
+    """(d) — refuser les noms de DOSSIER ferait tomber D39 : c'est la réserve du patch v2.1."""
+    etats = _dims_complets(
+        **{"D45": {"etat": "outillé sans usage", "mesure": "hypotheses", "artefact": artefact}}
+    )
+    v = ec.verifier(etats, _mesures(hypotheses=0))
+    assert v["ok"], v["erreurs"]
+
+
+def test_les_56_lignes_reelles_passent_les_durcissements_a_et_d():
+    """Le contrôle qui compte : aucune des 56 lignes publiées ne tombe (vérifié le 20/09/2026)."""
+    racine = Path(__file__).resolve().parents[2]
+    etats = json.loads((racine / "etats/etats.json").read_text(encoding="utf-8"))
+    mesures = json.loads(
+        (racine / "instruments/mesures_prod.json").read_text(encoding="utf-8")
+    )
+    v = ec.verifier(etats, mesures)
+    fautifs = [e for e in v["erreurs"] if "artefact" in e or "justification" in e or "ancre" in e]
+    assert fautifs == [], fautifs
+
+
+# --- Durcissement (b) : d'où vient ce fichier de mesures, et de quand date-t-il ? ------------
+
+
+def test_mesures_hors_prod_sont_refusees():
+    """Le trou (b) du §0.2 : --db acceptait n'importe quelle base, personne ne le voyait."""
+    v = ec.verifier(_dims_complets(), _mesures(base_prod=False))
+    assert not v["ok"]
+    assert any("prod" in e for e in v["erreurs"]), v["erreurs"]
+
+
+def test_mesures_sans_cle_de_provenance_sont_refusees():
+    """Un fichier d'avant le durcissement n'a pas la clé : il ne passe pas pour autant."""
+    mesures = _mesures()
+    del mesures["base_prod"]
+    v = ec.verifier(_dims_complets(), mesures)
+    assert not v["ok"]
+    assert any("base_prod" in e for e in v["erreurs"]), v["erreurs"]
+
+
+def test_mesures_d_hier_sont_refusees():
+    """Un COUNT cumulatif d'hier ne dit rien de l'état d'aujourd'hui."""
+    hier = (date.today() - timedelta(days=1)).isoformat()
+    v = ec.verifier(_dims_complets(), _mesures(date_mesure=hier))
+    assert not v["ok"]
+    assert any("date_mesure" in e or "jour" in e for e in v["erreurs"]), v["erreurs"]
+
+
+def test_le_jour_de_reference_est_injectable():
+    """Pour rejouer une vérification d'une autre date sans mentir sur celle du jour."""
+    hier = (date.today() - timedelta(days=1)).isoformat()
+    v = ec.verifier(_dims_complets(), _mesures(date_mesure=hier), jour=hier)
+    assert v["ok"], v["erreurs"]
+
+
+def test_le_fichier_de_mesures_reel_porte_sa_provenance():
+    """Le contrôle sur le vrai fichier régénéré en session 0."""
+    racine = Path(__file__).resolve().parents[2]
+    m = json.loads((racine / "instruments/mesures_prod.json").read_text(encoding="utf-8"))
+    assert m["base_prod"] is True
+    assert m["date_mesure"] == "2026-09-20"
+
+
+# --- Durcissement (c) : une ligne peut-elle redescendre sans que personne ne le voie ? --------
+
+
+def _instantane(**etats):
+    base = {i: "à construire" for i in ec.IDS}
+    base.update(etats)
+    return {"date": "2026-09-20", "motif": "test", "etats": base}
+
+
+def test_comparer_detecte_une_retrogradation():
+    """A5 : « en service » est irréversible de fait, faute de quoi que ce soit qui le regarde."""
+    avant = _instantane(D01="en service")
+    apres = _dims_complets(**{"D01": {"etat": "amorcé"}})
+    r = ec.comparer(apres, avant)
+    assert not r["ok"]
+    assert [x["id"] for x in r["retrogradees"]] == ["D01"]
+    assert r["retrogradees"][0]["avant"] == "en service"
+    assert r["retrogradees"][0]["apres"] == "amorcé"
+
+
+def test_comparer_accepte_une_progression():
+    avant = _instantane(D01="outillé sans usage")
+    apres = _dims_complets(**{"D01": {"etat": "en service"}})
+    r = ec.comparer(apres, avant)
+    assert r["ok"], r["retrogradees"]
+    assert [x["id"] for x in r["promues"]] == ["D01"]
+
+
+def test_comparer_signale_une_ligne_disparue():
+    avant = _instantane(D01="en service")
+    apres = _dims_complets()
+    apres["dimensions"] = [d for d in apres["dimensions"] if d["id"] != "D01"]
+    r = ec.comparer(apres, avant)
+    assert not r["ok"]
+    assert any("D01" in x for x in r["erreurs"]), r["erreurs"]
+
+
+def test_comparer_ne_voit_pas_de_retrogradation_sur_le_reel():
+    """L'instantané de départ et etats.json disent la même chose le jour où on l'écrit."""
+    racine = Path(__file__).resolve().parents[2]
+    etats = json.loads((racine / "etats/etats.json").read_text(encoding="utf-8"))
+    avant = json.loads(
+        (racine / "couverture/instantane_etats_2026-09-20.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    r = ec.comparer(etats, avant)
+    assert r["ok"], r["retrogradees"]
+    assert r["retrogradees"] == [] and r["promues"] == []
+
+
+def test_instantane_porte_les_comptes_attendus_de_l_annexe():
+    """D2 : les deux constantes sortent du code d'annexe_56.py pour devenir modifiables exprès."""
+    racine = Path(__file__).resolve().parents[2]
+    avant = json.loads(
+        (racine / "couverture/instantane_etats_2026-09-20.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert avant["attendu_couverture"] == {"couvert": 8, "partiel": 31, "absent": 17}
+    assert avant["attendu_etats"] == {
+        "en service": 3,
+        "acquis sans code": 2,
+        "outillé sans usage": 3,
+        "amorcé": 16,
+        "à construire": 32,
+    }
+    assert len(avant["etats"]) == 56
+
+
+def test_main_comparer_code_retour(tmp_path):
+    racine = Path(__file__).resolve().parents[2]
+    avant = tmp_path / "avant.json"
+    avant.write_text(
+        json.dumps(_instantane(D01="en service"), ensure_ascii=False), encoding="utf-8"
+    )
+    apres = tmp_path / "etats.json"
+    apres.write_text(
+        json.dumps(_dims_complets(**{"D01": {"etat": "amorcé"}}), ensure_ascii=False),
+        encoding="utf-8",
+    )
+    assert ec.main(["comparer", "--etats", str(apres), "--avant", str(avant)]) == 1
+    assert (
+        ec.main(
+            [
+                "comparer",
+                "--etats",
+                str(racine / "etats/etats.json"),
+                "--avant",
+                str(racine / "couverture/instantane_etats_2026-09-20.json"),
+            ]
+        )
+        == 0
+    )

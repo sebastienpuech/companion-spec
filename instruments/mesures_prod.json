@@ -1,6 +1,7 @@
 {
-  "date_mesure": "2026-09-04",
+  "date_mesure": "2026-09-20",
   "base": "coach.db",
+  "base_prod": true,
   "nb_tables": 69,
   "tables": {
     "athlete": 1,
@@ -9,53 +10,53 @@
     "contestation_sceptique": 0,
     "contexte_quotidien": 0,
     "conviction": 0,
-    "core_memory": 48,
-    "dossier_claim": 57,
-    "dossier_evidence": 120,
+    "core_memory": 62,
+    "dossier_claim": 64,
+    "dossier_evidence": 147,
     "dossier_meta": 4,
-    "dossier_observation": 79,
-    "dossier_prediction": 17,
+    "dossier_observation": 108,
+    "dossier_prediction": 24,
     "entretien_strategique": 0,
     "etat_derive": 3,
     "feedback_explicite": 0,
     "hypothese": 0,
     "initiative_coach": 0,
-    "intention": 38,
-    "memoire_note": 247,
-    "memory_link": 1247,
-    "memory_recall_log": 479,
-    "message_chat": 924,
+    "intention": 57,
+    "memoire_note": 289,
+    "memory_link": 1454,
+    "memory_recall_log": 602,
+    "message_chat": 1001,
     "modification_plan": 0,
     "observation_libre": 1,
-    "omission_audit": 51,
+    "omission_audit": 55,
     "plan_macro": 2,
     "poids_releve": 0,
     "principe": 4279,
     "retour_coach": 9,
     "retour_sebastien": 0,
-    "seance_prevue": 77,
-    "seance_reelle": 71,
+    "seance_prevue": 107,
+    "seance_reelle": 78,
     "segment": 0,
-    "situation": 2,
+    "situation": 3,
     "situation_anomaly": 3,
     "situation_attente": 0,
     "situation_event": 0,
     "sqlite_sequence": 33,
-    "user_mental_model": 185,
+    "user_mental_model": 208,
     "vec_memoire_note": null,
     "vec_memoire_note_chunks": 1,
     "vec_memoire_note_info": 4,
     "vec_memoire_note_ref": null,
     "vec_memoire_note_ref_chunks": 1,
     "vec_memoire_note_ref_info": 4,
-    "vec_memoire_note_ref_rowids": 203,
+    "vec_memoire_note_ref_rowids": 231,
     "vec_memoire_note_ref_vector_chunks00": 1,
-    "vec_memoire_note_rowids": 247,
+    "vec_memoire_note_rowids": 289,
     "vec_memoire_note_vector_chunks00": 1,
     "vec_message_chat": null,
     "vec_message_chat_chunks": 1,
     "vec_message_chat_info": 4,
-    "vec_message_chat_rowids": 882,
+    "vec_message_chat_rowids": 961,
     "vec_message_chat_vector_chunks00": 1,
     "vec_observation": null,
     "vec_observation_chunks": 0,
@@ -102,28 +103,28 @@
       "cle": "messages",
       "libelle": "messages échangés",
       "table": "message_chat",
-      "valeur": 924,
+      "valeur": 1001,
       "statut": "mesuré"
     },
     {
       "cle": "messages_coach",
       "libelle": "messages émis par le coach",
       "table": "message_chat",
-      "valeur": 520,
+      "valeur": 572,
       "statut": "mesuré"
     },
     {
       "cle": "messages_utilisateur",
       "libelle": "messages émis par l'utilisateur",
       "table": "message_chat",
-      "valeur": 404,
+      "valeur": 429,
       "statut": "mesuré"
     },
     {
       "cle": "jours_actifs",
       "libelle": "jours actifs (au moins un échange)",
       "table": "message_chat",
-      "valeur": 72,
+      "valeur": 87,
       "statut": "mesuré"
     },
     {
@@ -137,21 +138,21 @@
       "cle": "dernier_message",
       "libelle": "date du dernier message",
       "table": "message_chat",
-      "valeur": "2026-09-04",
+      "valeur": "2026-09-20",
       "statut": "mesuré"
     },
     {
       "cle": "jours_calendaires",
       "libelle": "jours calendaires depuis le premier message (inclus, jusqu'à la date de mesure)",
       "table": "message_chat",
-      "valeur": 121,
+      "valeur": 137,
       "statut": "mesuré"
     },
     {
       "cle": "notes_memoire",
       "libelle": "notes de mémoire",
       "table": "memoire_note",
-      "valeur": 247,
+      "valeur": 289,
       "statut": "mesuré"
     },
     {
@@ -159,10 +160,9 @@
       "libelle": "notes de mémoire par statut",
       "table": "memoire_note",
       "valeur": {
-        "actif": 228,
-        "archivé": 3,
-        "resolu": 1,
-        "sanctuarisé": 15
+        "actif": 269,
+        "archivé": 4,
+        "sanctuarisé": 16
       },
       "statut": "mesuré"
     },
@@ -177,14 +177,14 @@
       "cle": "liens_notes",
       "libelle": "liens entre notes",
       "table": "memory_link",
-      "valeur": 1247,
+      "valeur": 1454,
       "statut": "mesuré"
     },
     {
       "cle": "rappels",
       "libelle": "rappels journalisés",
       "table": "memory_recall_log",
-      "valeur": 479,
+      "valeur": 602,
       "statut": "mesuré"
     },
     {
@@ -192,10 +192,10 @@
       "libelle": "rappels journalisés par canal",
       "table": "memory_recall_log",
       "valeur": {
-        "auto_recall": 403,
-        "convictions": 17,
-        "portrait": 3,
-        "tool": 56
+        "auto_recall": 455,
+        "convictions": 69,
+        "portrait": 17,
+        "tool": 61
       },
       "statut": "mesuré"
     },
@@ -203,14 +203,14 @@
       "cle": "seances_importees",
       "libelle": "séances importées (Strava)",
       "table": "seance_reelle",
-      "valeur": 71,
+      "valeur": 78,
       "statut": "mesuré"
     },
     {
       "cle": "seances_planifiees",
       "libelle": "séances planifiées",
       "table": "seance_prevue",
-      "valeur": 77,
+      "valeur": 107,
       "statut": "mesuré"
     },
     {
@@ -231,56 +231,56 @@
       "cle": "audits_omission",
       "libelle": "audits d'omission",
       "table": "omission_audit",
-      "valeur": 51,
+      "valeur": 55,
       "statut": "mesuré"
     },
     {
       "cle": "affirmations_dossier",
       "libelle": "affirmations du Dossier",
       "table": "dossier_claim",
-      "valeur": 57,
+      "valeur": 64,
       "statut": "mesuré"
     },
     {
       "cle": "observations_dossier",
       "libelle": "observations du Dossier",
       "table": "dossier_observation",
-      "valeur": 79,
+      "valeur": 108,
       "statut": "mesuré"
     },
     {
       "cle": "predictions_dossier",
       "libelle": "prédictions scellées du Dossier",
       "table": "dossier_prediction",
-      "valeur": 17,
+      "valeur": 24,
       "statut": "mesuré"
     },
     {
       "cle": "instantanes_modele_mental",
       "libelle": "instantanés du modèle mental",
       "table": "user_mental_model",
-      "valeur": 185,
+      "valeur": 208,
       "statut": "mesuré"
     },
     {
       "cle": "entrees_memoire_coeur",
       "libelle": "entrées de mémoire de cœur",
       "table": "core_memory",
-      "valeur": 48,
+      "valeur": 62,
       "statut": "mesuré"
     },
     {
       "cle": "intentions",
       "libelle": "intentions suivies",
       "table": "intention",
-      "valeur": 38,
+      "valeur": 57,
       "statut": "mesuré"
     },
     {
       "cle": "notes_sanctuarisees",
       "libelle": "notes sanctuarisées",
       "table": "memoire_note",
-      "valeur": 15,
+      "valeur": 16,
       "statut": "mesuré"
     },
     {
@@ -294,10 +294,9 @@
       "cle": "derives_factuelles",
       "libelle": "dérives factuelles journalisées",
       "table": null,
-      "valeur": 0,
-      "statut": "mesuré hors base (logs)",
-      "note": "aucune table : le bot les écrit dans ses logs (`_log_grounding_divergence`) — voir --logs",
-      "source": "C:\\Users\\puech\\coach-data\\logs"
+      "valeur": null,
+      "statut": "non mesurable",
+      "note": "aucune table : le bot les écrit dans ses logs (`_log_grounding_divergence`) — voir --logs"
     },
     {
       "cle": "convictions",
@@ -315,7 +314,7 @@
     },
     {
       "cle": "hypotheses",
-      "libelle": "hypothèses N-of-1",
+      "libelle": "hypothèses N-of-1 tranchées",
       "table": "hypothese",
       "valeur": 0,
       "statut": "mesuré"
@@ -352,21 +351,63 @@
       "cle": "jours_coach_premier",
       "libelle": "jours où le coach parle le premier (premier message du jour émis par le coach)",
       "table": "message_chat",
-      "valeur": 44,
+      "valeur": 57,
       "statut": "mesuré"
     },
     {
       "cle": "part_coach_premier_jours_actifs",
       "libelle": "part des jours actifs où le coach parle le premier",
       "table": "message_chat",
-      "valeur": 0.611,
+      "valeur": 0.655,
       "statut": "mesuré"
     },
     {
       "cle": "part_coach_premier_jours_calendaires",
       "libelle": "part des jours calendaires où le coach parle le premier",
       "table": "message_chat",
-      "valeur": 0.364,
+      "valeur": 0.416,
+      "statut": "mesuré"
+    },
+    {
+      "cle": "rappels_declenches",
+      "libelle": "rappels déclenchés par une question (hors briefing systématique)",
+      "table": "memory_recall_log",
+      "valeur": 515,
+      "statut": "mesuré"
+    },
+    {
+      "cle": "notes_servies",
+      "libelle": "notes servies par ces rappels",
+      "table": "memory_recall_log",
+      "valeur": 2184,
+      "statut": "mesuré"
+    },
+    {
+      "cle": "age_median_note_servie",
+      "libelle": "âge médian d'une note servie, en jours",
+      "table": "memoire_note",
+      "valeur": 9,
+      "statut": "mesuré"
+    },
+    {
+      "cle": "part_notes_servies_plus_30j",
+      "libelle": "part des notes servies créées il y a plus de 30 jours",
+      "table": "memoire_note",
+      "valeur": 0.1529,
+      "statut": "mesuré"
+    },
+    {
+      "cle": "notes_retour_explicite",
+      "libelle": "notes portant le tag du retour explicite (la table dédiée est vide)",
+      "table": "memoire_note",
+      "valeur": 19,
+      "statut": "mesuré"
+    },
+    {
+      "cle": "predictions_scellees_resolues",
+      "libelle": "prédictions scellées puis résolues (la table `hypothese` est vide)",
+      "table": "dossier_prediction",
+      "valeur": 22,
       "statut": "mesuré"
     }
   ]
