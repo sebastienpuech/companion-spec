@@ -4,6 +4,22 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite 3) — l'essai entre dans l'import
+
+- `tools/importer_depuis_source.py` copie `docs/cdc/publication/narratif/essai.md` vers
+  `essai/essai.md` et recompare son sha256 à chaque passage, `--verifier` compris ; tout écart
+  arrête le script (code 1). 5 tests neufs (`test_importer_essai.py`), suite à 85 verts.
+- Garde-fou éprouvé : un espace ajouté à la main à l'essai → « ARRÊT : essai différent de la
+  source », code 1 ; restauré → CONFORME, code 0.
+- **Trouvé en route** : l'import complet tire aussi 6 fichiers que la source a fait évoluer
+  depuis le dernier import (`couverture/kit_juges.md` dont le point 8 réécrit,
+  `instruments/mesures_prod.json`, `tools/accord_juges.py`, `tools/etats_cdc.py`,
+  `tools/mesure_prod_cdc.py`, `tools/tests/test_etats_cdc.py` ; +909 / −286). **Non
+  importés** : restaurés à leur version commitée, écart gardé hors dépôt pour décision. Le mode
+  `--verifier` ne les voit pas, parce qu'il ne compare pas les pièces ni les scripts.
+
+---
+
 ## 21/09/2026 (suite 2) — essai l. 49
 
 Source `cdc-companion`, commit `049838c` : la fin de l. 49 dit ce que le juge modèle a fait

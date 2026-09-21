@@ -11,6 +11,8 @@ Quatre gestes, dans cet ordre :
 1. **Copie** des 56 fiches `docs/cdc/dimensions/*.md` vers `dimensions/`, plus les pièces
    annexes (couverture, états, instruments, scripts). Le sha256 de chaque fiche est comparé
    entre source et cible : « identique » ou « caviardé (n substitutions) », jamais autre chose.
+   L'essai (`docs/cdc/publication/narratif/essai.md` → `essai/essai.md`) est copié et
+   comparé de la même manière, sans caviardage possible : tout écart est un défaut.
 2. **Grep des interdits et des motifs PII** sur TOUTE la cible → `out/pii_rapport.md`. Le
    script **refuse de finir** tant qu'un motif trouvé n'est pas arbitré dans
    `decisions_pii.json` (verdict `garder` ou `caviarder`, avec sa raison). Chaque caviardage
@@ -76,6 +78,10 @@ PIECES = [
     ("docs/cdc/publication/mesures_prod.json", "instruments/mesures_prod.json"),
     ("docs/cdc/publication/mesures_prod.md", "instruments/mesures_prod.md"),
 ]
+
+# L'essai se copie à part : comme les fiches, son sha256 est recomparé à chaque passage,
+# `--verifier` compris. Trois recopies à la main le 21/09/2026 ont motivé ce geste.
+ESSAI = ("docs/cdc/publication/narratif/essai.md", "essai/essai.md")
 
 # Scripts copiés dans `tools/`. Deux retouches déclarées, et deux seulement :
 #   - `from scripts.X import` devient `from tools.X import` (le paquet change de nom) ;
@@ -236,6 +242,20 @@ def copier_pieces(source: Path, cible: Path, ecrire: bool) -> list[str]:
             shutil.copy2(src, dst)
         faits.append(rel_dst)
     return faits
+
+
+def copier_essai(source: Path, cible: Path, ecrire: bool) -> str:
+    """Copie l'essai (en mode import) puis compare : « identique », « différent » ou « absent »."""
+    src = source / ESSAI[0]
+    dst = cible / ESSAI[1]
+    if not src.exists():
+        raise SystemExit(f"ARRÊT : essai absent de la source — {ESSAI[0]}")
+    if ecrire:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+    if not dst.exists():
+        return "absent"
+    return "identique" if sha256(dst) == sha256(src) else "différent"
 
 
 def _retoucher(src: Path) -> tuple[bytes, int]:
@@ -570,6 +590,9 @@ def main() -> int:
         for nom in fiches["caviardees"]:
             print(f"        caviardée : {nom}")
 
+    essai = copier_essai(source, cible, ecrire)
+    print(f"        essai     : {essai} ({ESSAI[1]})")
+
     if ecrire:
         copier_pieces(source, cible, ecrire)
         retouches = copier_scripts(source, cible, ecrire)
@@ -601,6 +624,8 @@ def main() -> int:
     defauts = []
     if fiches["manquantes"]:
         defauts.append(f"{len(fiches['manquantes'])} fiches manquantes")
+    if essai != "identique":
+        defauts.append(f"essai {essai} de la source")
     if biblio["ecarts"]:
         defauts += biblio["ecarts"]
     if couv["nb_lignes"] != ATTENDU_LIGNES_COUVERTURE:
@@ -614,7 +639,7 @@ def main() -> int:
     if defauts:
         print("ARRÊT : " + " ; ".join(defauts))
         return 1
-    print("CONFORME : 56/56 fiches, 1 722 / 1 412 / 1 203 citations, 56 lignes de couverture, "
+    print("CONFORME : 56/56 fiches, essai identique, 1 722 / 1 412 / 1 203 citations, 56 lignes de couverture, "
           "0 PII non arbitrée.")
     return 0
 
