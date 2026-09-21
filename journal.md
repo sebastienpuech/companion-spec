@@ -4,6 +4,15 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite 2) — essai l. 49
+
+Source `cdc-companion`, commit `049838c` : la fin de l. 49 dit ce que le juge modèle a fait
+des deux doutes (D30 absente deux fois, D01 couverte puis partielle, D02 tient à la
+majorité) et que la thèse ne repose plus sur les lignes couvertes. Tells : rien de nouveau.
+Ici, `essai.md` recopié, identique au blob de `049838c`. Plus aucun passage connu en tension.
+
+---
+
 ## 21/09/2026 (suite) — passages en tension alignés
 
 - Source `cdc-companion`, commit `b94ee1f` : essai l. 47 (résultat des deux passages du juge
