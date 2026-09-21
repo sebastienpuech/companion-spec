@@ -4,6 +4,29 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 — la thèse passe de douze sur dix-sept à sept sur neuf
+
+Base : `out/juge-modele-2026-09-20/RAPPORT.md` (non versionné). Le compte de 17 absents ne
+résiste pas au changement de juge : le même juge modèle, relancé à l'identique, se contredit
+sur 15 lignes sur 55. Seules 9 lignes sont `absent` pour les trois notations (D08, D19, D22,
+D24, D27, D35, D41, D47, D48). Croisées avec `etats/etats_rapport.md` : 7 à portée (6 si D41
+suit son reclassement du 28/08), 1 recherche (D24), 1 hors de portée (D35). À la majorité :
+15, dont 4 jamais classées par l'arbitrage du 14/08 (D04, D10, D18, D30).
+
+Décisions de Sébastien, ce jour : thèse assise sur les 9 unanimes ; réécriture faite dans la
+source puis réimportée ; notations modèle assumées dans le texte.
+
+- Source `projet-coach-cdc`, branche `cdc-companion`, commit `8629a97` : l. 15, fin de l. 53,
+  §5 (titre et paragraphe), l. 63. Compteur de tells rejoué avant / après : rien de nouveau.
+- Ici : `essai/essai.md` recopié, identique octet pour octet au blob de `8629a97` ;
+  `README.md` l. 34 (identique à l. 15 de l'essai) et l. 11 (résumé anglais).
+- Non touchés, et désormais en tension avec la thèse : `essai/these.md` (passage validé du
+  06/09, 12 sur 17), essai l. 47 et l. 87 (« les juges pas encore », « verdict d'un seul
+  évaluateur »), essai l. 51 et README l. 10 (bloc voix le mieux couvert, non départageable
+  selon le rapport).
+
+---
+
 ## Session 1 — 06/09/2026 — création du dépôt
 
 Session 3 du chantier publication du CDC (`projet-coach-cdc`, branche `cdc-companion`,
