@@ -19,8 +19,8 @@ que ce sont eux qui donnent l'échelle.
 | **A** — document d'arbitrage interne, rédigé par un modèle | 15 833 | **5,0** (264) | 3,47 (55) | 6 | 0 | 21,7 ± 14,3 | 1 / 67 |
 | **B** — prose de cadrage d'un rapport interne, rédigée par un modèle | 3 795 | 0,24 (3) | 2,90 (11) | 1 | 1 | 15,9 ± 10,5 | 3 / 29 |
 | **Dictée** — texte dicté à l'oral par l'auteur, non publié | 858 | 0,0 (0) | 1,17 (1) | 0 | 1 | 29,6 ± 18,7 | 3 / 3 |
-| **La thèse** — passage validé, publié (`essai/these.md`) | 203 | **0,0** (0) | **0,0** (0) | 2 | 0 | 25,4 ± 23,8 | **0 / 1** |
-| **Les limites** — passage validé, publié (`essai/limites.md`) | 252 | **0,0** (0) | **0,0** (0) | 0 | 0 | 42,0 ± 19,1 | **0 / 1** |
+| **La thèse** — passage validé, publié (`essai/these.md`, version du 06/09 remplacée le 21/09) | 203 | **0,0** (0) | **0,0** (0) | 2 | 0 | 25,4 ± 23,8 | **0 / 1** |
+| **Les limites** — passage validé, publié (`essai/limites.md`, version du 06/09 remplacée le 21/09) | 252 | **0,0** (0) | **0,0** (0) | 0 | 0 | 42,0 ± 19,1 | **0 / 1** |
 
 ## Ce que l'étalonnage montre
 

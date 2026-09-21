@@ -4,6 +4,23 @@ Mémoire de suivi du dépôt. On l'ajoute, on ne le résume pas.
 
 ---
 
+## 21/09/2026 (suite 6) — les 11 points moyens et bas de la relecture
+
+- Source (non commité) : essai §5 (« quatre qui n'étaient pas parmi les dix-sept »), §5 verrous
+  (« huit verrous, sept racines et un symptôme composé »), §7 (statut daté du 21/09) ; kit :
+  table de correspondance des chemins source → dépôt public, et écart déclaré à la règle du
+  vote majoritaire (thèse sur l'unanimité, 9 contre 15). Pièce restaurée depuis `47b7fa2` :
+  `mesures_prod_2026-09-04.json/.md` (37 mesures), celle qui porte les chiffres du §6 de l'essai.
+- Ici : importeur (la pièce du 04/09 ajoutée à `PIECES`), `instruments/README.md`,
+  `note_methode.md` (onze passes pour neuf lots ; écart de vote déclaré au §5),
+  `mapping_8_verrous.md` (note de lecture : 31 et non 32, V1 et D54, « déjà fait » ≠ « en
+  service » — le texte d'origine laissé tel quel), README l. 50 (7 racines + 1 symptôme),
+  `these.md` / `limites.md` (pointeurs vers `tells_these.json` / `tells_limites.json`),
+  `tells_etalonnage.md` (les deux passages marqués remplacés).
+- Réimport : `--verifier` CONFORME, 106 tests, ruff propre, tells de la thèse inchangés.
+- Reste : « deux juges de plus » dans `tools/etats_cdc.py` (l. 11, et le statut l. 142 écrit dans
+  `couverture_evaluateur1_2026-08-21.json`).
+
 ## 21/09/2026 (suite 5) — relecture de cohérence, les 7 points hauts corrigés
 
 Relecture extérieure en lecture seule : 18 incohérences, rapport dans

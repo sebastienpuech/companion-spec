@@ -58,7 +58,8 @@ Chaque citation ressort dans un de trois états :
   compté comme résolu : c'est la règle qui empêche un gate de se valider tout seul un jour où
   Internet tousse.
 
-**Onze passes** ont été jouées entre le 4 et le 13 août 2026, une par lot de fiches, avec un
+**Onze passes** ont été jouées entre le 4 et le 13 août 2026 pour neuf lots de fiches : une par
+lot, plus une tentative invalidée le 10 août et relancée le lendemain. Chacune tourne avec un
 garde-fou anti-triche : si le nombre de citations uniques d'une fiche **baisse** entre deux
 passes, la passe marque « REGRESSION » pour cette fiche — on ne fait pas monter un taux en
 retirant les citations gênantes.
@@ -181,6 +182,11 @@ ligne par ligne, contre un système qui tourne.
   21/09/2026. Seules 9 lignes sont absentes pour les trois ; le même juge, relancé à
   l'identique, se contredit sur 15 lignes sur 55. Aucun juge humain n'a encore noté
   (`couverture/kit_juges.md`), et le relevé sera rejoué la semaine de la publication.
+- **La thèse s'écarte de la règle de vote écrite d'avance.** Le kit publie les comptes du vote
+  majoritaire, qui donne 15 lignes absentes ; la thèse retient les 9 absentes pour les trois
+  notations, parce que deux des trois notations viennent du même juge modèle et qu'elle ne garde
+  que l'accord (essai, §5). L'écart est déclaré dans `couverture/kit_juges.md` ; les deux
+  comptes sont publiés.
 - **« À portée de main » est un arbitrage**, rendu le 14/08/2026, pas une démonstration. La
   démonstration sera chaque brique passée en service, avec sa mesure non nulle.
 - **L'incitation comme cause n'est pas une découverte de ce texte.** Elle est établie ailleurs ;

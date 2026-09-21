@@ -1,6 +1,6 @@
 <!-- Passage validé par Sébastien le 06/09/2026, repris MOT POUR MOT depuis
      docs/cdc/publication/narratif/narratif_valide.md du dépôt privé. Aucune retouche.
-     Compteurs (mesure_tells.py) : voir instruments/tells_narratif.json. -->
+     Compteurs (mesure_tells.py) : voir instruments/tells_limites.json. -->
 > **Version du 06/09/2026, remplacée le 21/09/2026.** La version en vigueur est au chapitre des limites de [`essai.md`](essai.md) : « absent » y a été noté trois fois, et non plus par un seul évaluateur. Ce passage reste ici tel qu'il a été validé, parce que `instruments/tells_etalonnage.md` le mesure.
 ## Ce que ce texte n'établit pas
 

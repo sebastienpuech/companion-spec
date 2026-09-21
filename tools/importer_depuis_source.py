@@ -77,6 +77,8 @@ PIECES = [
     ("docs/cdc/publication/etats_rapport.md", "etats/etats_rapport.md"),
     ("docs/cdc/publication/mesures_prod.json", "instruments/mesures_prod.json"),
     ("docs/cdc/publication/mesures_prod.md", "instruments/mesures_prod.md"),
+    ("docs/cdc/publication/mesures_prod_2026-09-04.json", "instruments/mesures_prod_2026-09-04.json"),
+    ("docs/cdc/publication/mesures_prod_2026-09-04.md", "instruments/mesures_prod_2026-09-04.md"),
     ("docs/cdc/publication/instantane_etats_2026-09-20.json",
      "couverture/instantane_etats_2026-09-20.json"),
 ]

@@ -1,6 +1,6 @@
 <!-- Passage validé par Sébastien le 06/09/2026, repris MOT POUR MOT depuis
      docs/cdc/publication/narratif/narratif_valide.md du dépôt privé. Aucune retouche.
-     Compteurs (mesure_tells.py) : voir instruments/tells_narratif.json. -->
+     Compteurs (mesure_tells.py) : voir instruments/tells_these.json. -->
 > **Version du 06/09/2026, remplacée le 21/09/2026.** La thèse en vigueur est « sept sur neuf », au §5 de [`essai.md`](essai.md) : le compte de dix-sept n'a pas résisté à deux passages d'un juge modèle. Ce passage reste ici tel qu'il a été validé, parce que `instruments/tells_etalonnage.md` le mesure.
 ## La thèse, en douze sur dix-sept
 

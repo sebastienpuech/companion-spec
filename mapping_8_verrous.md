@@ -62,6 +62,14 @@ D33, ne dépend d'aucun verrou**.
 > mono-appel, *contournable par ingénierie*), et **il explique 4 lignes pleinement + D43 en partie,
 > pas 6** — D54 a basculé sous V8. Le mot « verrou racine » reste juste pour V2 à V8 ; pour V1,
 > lire « symptôme composé ».
+>
+> **Note de lecture, 21/09/2026.** Le « 6 » réfuté est le compte d'avant la correction (4 lignes
+> + D43 + D54) ; le « cinq » du paragraphe ci-dessus se lit 4 pleinement + D43 en partie. Au §6,
+> la mention « V1 ensuite » de D54 (L10) date d'avant la correction : D54 relève de V8 seul.
+>
+> **« Déjà fait » n'est pas « en service ».** Les 6 « déjà faites » sont le classement du
+> 14/08/2026. Depuis la règle des cinq états (04/09/2026, `etats/etats.json`), 3 sont en service
+> (D01, D12, D49), 2 acquises sans code (D30, D47) et 1 outillée sans usage (D45).
 
 ---
 
@@ -69,7 +77,8 @@ D33, ne dépend d'aucun verrou**.
 
 > **Couverture exacte** : **19 des 20 LIMITE** sont rattachées à un verrou ci-dessous. **D33 n'en a
 > aucun** — son blocage est contournable par ingénierie et ne partage sa racine avec rien. La somme
-> de la colonne (32) dépasse 20 : plusieurs LIMITE relèvent de deux verrous, et la table porte
+> de la colonne (écrite 32 dans le document d'origine ; recomptée le 21/09/2026, la table
+> ci-dessous en porte 31, D43 comptée une fois sous V1) dépasse 20 : plusieurs LIMITE relèvent de deux verrous, et la table porte
 > aussi des lignes **non** classées LIMITE (D22, D47, D04, et les résiduels de D06, D30, D36) —
 > c'est voulu, un verrou déborde le périmètre du backlog.
 
@@ -129,7 +138,8 @@ Trié par impact sur l'expérience, tel qu'il a été arbitré le 14/08/2026.
 
 ### 7.1 Déjà en service dans le pilote (6)
 
-Ce que le pilote couvre au 14/08/2026. La colonne qui nommait les fichiers du dépôt privé a été
+Ce que le pilote couvre au 14/08/2026, selon le classement de ce jour-là ; au sens de la règle des
+cinq états (04/09/2026), seules D01, D12 et D49 sont « en service ». La colonne qui nommait les fichiers du dépôt privé a été
 retirée ; l'état ligne par ligne, avec sa règle et ses comptes, est dans `etats/etats.json`.
 
 | Ligne | Ce qui est couvert | Ce qui manque encore |

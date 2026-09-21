@@ -5,6 +5,13 @@ Correction 3 de l'audit de publiabilité du 03/09/2026. Écrit le 04/09/2026.
 le geste à noter, et la colonne d'exemples a été vidée de tout verdict. Ce qui a changé et
 pourquoi : `docs/cdc/publication/kit_relecture.md`.
 
+> **Dans le dépôt public `companion-spec`**, ce kit est copié tel quel et garde les chemins du
+> dépôt de travail. Correspondance : `scripts/…` → `tools/…` ; `tests/…` → `tools/tests/…` ;
+> `docs/cdc/publication/kit_*` et `couverture_evaluateur1_2026-08-21.json` → `couverture/…` ;
+> `docs/cdc/publication/etats.json` → `etats/etats.json` ; `docs/cdc/dimensions/` → `dimensions/`.
+> Les commandes prêtes à lancer dans ce dépôt sont dans son `README.md`. `kit_relecture.md` n'y
+> est pas publié.
+
 ## Pourquoi ce kit
 
 Le tableau de couverture de départ (**8 couvert / 31 partiel / 17 absent**) est la notation
@@ -112,6 +119,13 @@ python scripts/accord_juges.py docs/cdc/publication/kit_juges_notes.csv --json d
    publication porte le κ de la première**.
 4. Les comptes publiés (couvert / partiel / absent) sont ceux du **vote majoritaire** ; une ligne
    sans majorité est publiée comme telle.
+
+   *Écart déclaré, 21/09/2026.* La thèse de l'essai (§5) ne s'appuie pas sur ce vote : elle
+   retient les **9** lignes absentes pour les trois notations, là où le vote majoritaire en
+   donne **15**. Les deux comptes sont publiés dans l'essai. Motif, celui du §5 : les trois
+   notations viennent de modèles, dont deux du même juge, qui se contredit sur 15 lignes sur 55 ;
+   la thèse ne garde que l'accord. La règle ci-dessus reste celle du dépouillement à trois juges
+   distincts.
 
 ## Le biais de l'instrument, déclaré
 

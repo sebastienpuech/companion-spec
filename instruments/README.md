@@ -10,7 +10,7 @@ Ce que ce dépôt mesure, avec quoi, et ce qu'un tiers peut rejouer ou non.
 | `tools/mesure_provenance.py` | Quelle part d'un texte vient mot pour mot d'un texte source (4-grammes) | **Oui** |
 | `tools/notes_juges.py` + `tools/accord_juges.py` | Le gabarit de notation des 56 lignes, sa vérification de forme, puis le κ de Fleiss à trois juges | **Oui** — c'est fait pour |
 | `tools/etats_cdc.py` | Vérifie les cinq états des 56 lignes et calcule les comptes par état et par bloc | **Partiellement** : la vérification de forme tourne sur `etats/etats.json`, le contrôle « en service ⇒ mesure non nulle » a besoin de `mesures_prod.json` |
-| `tools/mesure_prod_cdc.py` | 43 mesures de la production du pilote, chacune rattachée à sa table, en lecture seule | **Non — nécessite la base du pilote, qui n'est pas fournie.** Le script et ses sorties datées sont publiés ; la base ne l'est pas |
+| `tools/mesure_prod_cdc.py` | 43 mesures de la production du pilote (37 à la première sortie, le 04/09/2026), chacune rattachée à sa table, en lecture seule | **Non — nécessite la base du pilote, qui n'est pas fournie.** Le script et ses sorties datées sont publiés ; la base ne l'est pas |
 
 ## Les sorties datées
 
@@ -19,6 +19,9 @@ Ce que ce dépôt mesure, avec quoi, et ce qu'un tiers peut rejouer ou non.
   **toujours vides** : c'est ce qui fait basculer trois lignes en « outillé sans usage » plutôt
   qu'en « en service ». Le fichier dit ce qui est en base ; `../note_methode.md` dit ce que ça
   vaut.
+- `mesures_prod_2026-09-04.json` et `.md` — les 37 mesures du **04/09/2026**, première sortie du
+  même script. C'est d'elles que viennent les chiffres de production du §6 de l'essai (924
+  messages, 72 jours actifs sur 121, 247 notes…) et les mesures de `etats/etats.json`.
 - `tells_these.json`, `tells_limites.json` — les compteurs des deux passages publiés, du
   **06/09/2026**, reproductibles par les deux commandes de `tells_etalonnage.md`.
 
